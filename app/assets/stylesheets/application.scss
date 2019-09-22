@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
-@import "items/top";
+@import "reset";
 @import "shared/header";
 @import "shared/footer";
+@import "items/top";
