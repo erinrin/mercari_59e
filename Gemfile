@@ -79,7 +79,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'pry-rails'
-gem 'fontawesome'
+gem "font-awesome-rails"
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'omniauth'
