@@ -88,3 +88,4 @@ gem 'omniauth-facebook'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'payjp'
 gem 'mini_magick'
+gem 'ancestry'
