@@ -1,0 +1,33 @@
+.login
+  .login-header
+    = link_to root_path do
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "login-header__logo"
+  .login-panel
+    .login-panel__account
+      %p アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", new_user_registration_path, class: 'login-panel__account__sign-up'
+    .login-panel__sns
+      = link_to "Facebookでログイン", new_user_registration_path, class: 'login-panel__sns__facebook'
+      = link_to "Googleでログイン", new_user_registration_path, class: 'login-panel__sns__google'
+    .login-panel__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-email", placeholder: 'メールアドレス'
+        = f.password_field :password, autocomplete: "current-password", class: "login-pass", placeholder: 'パスワード'
+        .robot-btn
+          = f.check_box :remember_me
+          = f.label :ロボットちゃいます
+        = f.submit "ログイン", class: "login-btn"
+      .forget-pass
+        = render "devise/shared/links"
+  .login-footer
+    %nav
+      %ul.footer-clearfix
+        %li
+          = link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
+        %li.footer-margin-left
+          = link_to "メルカリの利用規約", "https://www.mercari.com/jp/tos/"
+        %li.footer-margin-left
+          = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
+    = link_to root_path do
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "login-footer__logo"
+    %p ©2019 Mercari

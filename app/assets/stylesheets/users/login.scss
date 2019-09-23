@@ -1,0 +1,182 @@
+.login {
+  background-color: #f5f5f5;
+  height: 1090px;
+  width: 100%;
+}
+
+.login a {
+  text-decoration: none;
+}
+
+.login-header {
+  width: 100%;
+  height: 128px;
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  &__logo {
+    width: 185px;
+    height: 49px;
+    margin: 40px 8px 0 0;
+  }
+}
+
+.login-panel {
+  font-family: 'Source Sans Pro', Helvetica;
+  width: 456px;
+  height: 737px;
+  background-color: white;
+  margin: 0 auto;
+  &__account{
+    padding: 40px 64px;
+    width: 328px;
+    height: 71px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    p {
+      font-size: 14px;
+    }
+    &__sign-up {
+      display: block;
+      margin-top: 8px;
+      background-color: #0099e8;
+      color: white;
+      line-height: 40px;
+      font-size: 14px;
+      border: 1px solid #0099e8;
+    }
+  }
+  &__sns {
+    width: 328px;
+    height: 115px;
+    padding: 32px 64px;
+    line-height: 48px;
+    font-size: 14px;
+    &__facebook {
+      display: block;
+      width: 100%;
+      background: #385185;
+      color: #fff;
+      text-align: center;
+    }
+    &__google {
+      display: block;
+      width: 100%;
+      border: 1px solid #979797;
+      color: #333;
+      margin: 18px 0 0;
+      text-align: center;
+    }
+  }
+  &__form {
+    text-align: center;
+    width: 328px;
+    padding: 24px 64px 32px;
+  }
+}
+.login-email {
+  width: 294px;
+  height: 28px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 0 0 24px;
+}
+
+.login-pass {
+  width: 294px;
+  height: 28px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  
+}
+
+.robot-btn {
+  margin: 24px 0 0;
+  color: rgb(51, 51, 51);
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 4px 1px rgba(0,0,0,0.08);
+  width: 328px;
+  height: 76px;
+}
+
+.login-btn {
+  margin: 24px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.forget-pass a {
+  color: #0099e8;
+  text-decoration: none;
+  display: block;
+  margin: 40px 0 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+// ここからフッター
+.login-footer {
+  width: 456px;
+  height: 140px;
+  margin: 0 auto;
+  padding: 40px 0;
+  &__logo {
+    display: block;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  & nav {
+    display: block;
+    text-align: center;
+    width: 456px;
+    height: 12px;
+  }
+  p {
+    text-align: center;
+    font-size: 13px;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    color: #333;
+    margin-top: 8px;
+  }
+}
+
+// ulクラス
+.footer-clearfix {
+  padding-inline-start: 40px;
+  margin: 0 auto;
+  & a {
+    display: block;
+    float: left;
+    font-size: 12px;
+    color: #333333;
+    &:hover {
+      color: #696969;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-margin-left a {
+  margin-left: 16px;
+}
