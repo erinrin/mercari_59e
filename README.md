@@ -42,14 +42,14 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |price|string|null: false|
 |description|string|null: false|
 |buyer_id|integer|null: true, foreign_key: user_id|
 |seller_id|integer|null: false, foreign_key: user_id|
 ### Association
 - belongs_to :user
-- has_many :image
+- has_many :images
 - belongs_to :large_category
 - belongs_to :medium_category
 - belongs_to :small_category
@@ -73,6 +73,7 @@ Things you may want to cover:
 |name|string|null: false|
 ### Association
 - belongs_to :item
+- has_many :medium_categories
 
 ## medium_categoriesテーブル
 |Column|Type|Options|
@@ -81,6 +82,8 @@ Things you may want to cover:
 |large_category|references|false, foreign_key: true|
 ### Association
 - belongs_to :item
+- belongs_to :large_category
+- has_many :small_categories
 
 ## small_categoriesテーブル
 |Column|Type|Options|
@@ -89,15 +92,16 @@ Things you may want to cover:
 |medium_category|references|false, foreign_key: true|
 ### Association
 - belongs_to :item
+- belongs_to :medium_category
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |brand|string|null: false|
 ### Association
-- belongs_to :item
+- has_many :items
 
-## statusテーブル
+## statesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |state|integer|null: false, default: "1"|
