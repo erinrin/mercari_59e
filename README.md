@@ -28,13 +28,13 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|kanjiname|string|null: false|
-|kananame|string|null: false|
+|name|string|null: false|
+|name_kana|string|null: false|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |birthday|string|null: false|
-|image|text|null: true|
+|avatar|text|null: true|
 |profile|text|null: true|
 ### Association
 - has_many :items
@@ -51,9 +51,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_many :images
-- belongs_to :large_category
-- belongs_to :medium_category
-- belongs_to :small_category
+- belongs_to :category
 - belongs_to :brand
 - belongs_to :senddate
 - belongs_to :sendmethod
@@ -67,37 +65,18 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 
-## large_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
 - belongs_to :item
-- has_many :medium_categories
-
-## medium_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|large_category|references|false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :large_category
-- has_many :small_categories
-
-## small_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|medium_category|references|false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :medium_category
+- has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :items
 
