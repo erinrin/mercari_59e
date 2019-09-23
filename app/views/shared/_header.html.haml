@@ -1,0 +1,21 @@
+.header
+  .header__main
+    .header__main__up
+      .header__main__up__logo
+        %img{:src=>"https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
+          = link_to "", root_path
+      %from{:action=>"search", :class=>"search__items"}
+        %input{:name=>"keyword",:placeholder=>"何かお探しですか？",:type=>"search"}
+      %button{:type=>"submit", :class=>"search__button"}
+        %i.fas.fa-search
+    .header__main__down
+      .header__main__down-leftbox
+        .header__main__down__leftbox-category
+          = link_to "カテゴリーから探す", root_path
+        .header__main__down__leftbox-brand
+          = link_to "ブランドから探す", root_path
+      .header__main__down__rightbox
+        .header__main__down__rightbox-new-member-registration
+          = link_to "新規会員登録", root_path
+        .header__main__down__rightbox-login
+          = link_to "ログイン", root_path

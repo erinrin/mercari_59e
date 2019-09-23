@@ -1,0 +1,91 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  display: block;
+  &__main {
+    width: 100%;
+    margin: 0px auto;
+    padding: 8px 0px 0px;
+    &__up {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      &__logo {
+        transform:scale(0.5);
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin-right: 45px;
+      }
+      .search__items {
+        width: 841px;
+        height: 40px;
+        }
+      .search__button {
+        background-color: transparent;
+        cursor: pointer;
+        height: 40px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 40px;
+        -webkit-appearance: none;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        border-radius: 0px 4px 4px 0px;
+        padding: 0px;
+      }
+    }
+    &__down {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin-top: 8px;
+      &__leftbox {
+        display: flex;
+        margin-left: -3px;
+        text-decoration: none;
+        &__category {
+        cursor: pointer;
+        height: 44px;
+        position: relative;
+        z-index: 3;
+        padding: 0px 10px;
+        }
+        &__brand {
+        cursor: pointer;
+        height: 44px;
+        position: relative;
+        z-index: 3;
+        padding: 0px 10px;
+        }
+      &__rightbox {
+        display: flex;
+        &__new-member-registration {
+        text-align: center;
+        }
+        &__login {
+        text-align: center;
+        margin-left: 11px;
+        }
+      }
+    }
+    }
+  }
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
