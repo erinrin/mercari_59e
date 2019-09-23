@@ -45,6 +45,7 @@ Things you may want to cover:
 |name|string|null: false|
 |price|string|null: false|
 |description|string|null: false|
+|status|integer|null: false, default: "1"|
 |buyer_id|integer|null: true, foreign_key: user_id|
 |seller_id|integer|null: false, foreign_key: user_id|
 ### Association
@@ -54,7 +55,6 @@ Things you may want to cover:
 - belongs_to :medium_category
 - belongs_to :small_category
 - belongs_to :brand
-- belongs_to :state
 - belongs_to :senddate
 - belongs_to :sendmethod
 - belongs_to :quality
@@ -100,13 +100,6 @@ Things you may want to cover:
 |brand|string|null: false|
 ### Association
 - has_many :items
-
-## statesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|state|integer|null: false, default: "1"|
-### Association
-- belongs_to :item
 
 ## senddatesテーブル
 |Column|Type|Options|
