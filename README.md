@@ -90,13 +90,13 @@ Things you may want to cover:
 ## sendmethodsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|sendmethod|integer||null: false|
+|sendmethod|integer|null: false|
 ### Association
 - belongs_to :item
 
 ## qualitiesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|quality|integer||null: false|
+|quality|integer|null: false|
 ### Association
 - belongs_to :item
