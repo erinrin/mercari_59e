@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2019_09_25_083733) do
     t.string "name_kana_last", null: false
     t.string "nickname", null: false
     t.string "email", default: "", null: false
-    t.string "password", null: false
     t.string "encrypted_password", default: "", null: false
     t.date "birthday", null: false
     t.text "avatar"
