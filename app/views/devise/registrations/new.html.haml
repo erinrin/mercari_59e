@@ -1,0 +1,70 @@
+.signup__container
+  .signup__container__top
+    %h1.signup__container__top-title
+      %a.signup__container__top-title-link
+        %img.signup__container__top-title-link-logo{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464"}
+    %nav.signup__container__top__progress
+      %ol.signup__container__top__progress-lists
+        %li.signup__container__top__progress-lists-list
+          会員情報
+          .signup__container__top__progress-lists-list-status
+        %li.signup__container__top__progress-lists-nextlist
+          電話番号認証
+          .signup__container__top__progress-lists-nextlist-status
+        %li.signup__container__top__progress-lists-nextlist
+          お届け先住所入力
+          .signup__container__top__progress-lists-nextlist-status
+        %li.signup__container__top__progress-lists-nextlist
+          支払い方法
+          .signup__container__top__progress-lists-nextlist-status
+        %li.signup__container__top__progress-lists-nextlist
+          完了
+          .signup__container__top__progress-lists-nextlist-laststatus
+  .signup__container__bottom
+    %section.signup__container__bottom__main
+      %h2.signup__container__bottom__main-title 会員情報入力
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          .field-first
+            = f.label :nickname, value: "ニックネーム", class:"field-first-label"
+            %span.field-first-tag 必須
+            = f.text_field :nickname, autofocus: true, class:"field-first-input", placeholder:"例)メルカリ太郎"
+          .field-groups
+            = f.label :email, value: "メールアドレス", class:"field-first-label"
+            %span.field-first-tag 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email",class:"field-first-input", placeholder:"PC・携帯どちらでも可"
+          .field-groups
+            = f.label :password, value: "パスワード", class:"field-first-label"
+            %span.field-first-tag 必須
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password,class:"field-first-input", placeholder:"6文字以上"
+          .field-groups
+            = f.label :password_confirmation, value: "パスワード(確認)", class:"field-first-label"
+            %span.field-first-tag 必須
+            = f.password_field :password_confirmation,class:"field-first-input", placeholder:"6文字以上"
+          .field-groups
+            %h3.field-groups-title 本人確認
+            %p.field-groups-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .field-groups
+            = f.label :name, value: "お名前(全角)", class:"field-first-label"
+            %span.field-first-tag 必須
+            = f.text_field :name, autofocus: true, autocomplete: "name",class:"field-first-input", placeholder:"例)山田彩"
+          .field-groups
+            = f.label :name_kana, value: "お名前カナ(全角)", class:"field-first-label",default:"ななし"
+            %span.field-first-tag 必須
+            = f.text_field :name_kana,class:"field-first-input", placeholder:"例)ヤマダアヤ"
+          .field-groups
+            = f.label :birthday, autofocus: true, autocomplete: "birthday",class:"field-first-input", placeholder:"例)2000年10月20日"
+            %span.field-first-tag 必須
+            .field-groups-birthday
+              = f.text_field :birthday, value: "たんじょうび", class:"field-first-label",default:"ななし"
+            -# != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+          %p.field-notice※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .field-groups
+          = f.submit "会員登録", class:"field-button"
+          = render "devise/shared/links"
