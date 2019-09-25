@@ -10,26 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_113259) do
+ActiveRecord::Schema.define(version: 2019_09_25_065521) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name_first"
+    t.string "name_last"
+    t.string "name_kana_first"
+    t.string "name_kana_last"
+    t.integer "post_number", null: false
+    t.integer "prefecture", null: false
+    t.string "city", null: false
+    t.text "house_number", null: false
+    t.string "building"
+    t.integer "phone_number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
     t.string "price", null: false
     t.text "description", null: false
-    t.integer "buyer_id"
-    t.integer "seller_id", null: false
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_kana", null: false
+    t.string "name_first", null: false
+    t.string "name_last", null: false
+    t.string "name_kana_first", null: false
+    t.string "name_kana_last", null: false
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "password", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "birthday", null: false
+    t.date "birthday", null: false
     t.text "avatar"
     t.text "profile"
     t.string "reset_password_token"
@@ -41,4 +69,7 @@ ActiveRecord::Schema.define(version: 2019_09_21_113259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end
