@@ -1,0 +1,177 @@
+.item-box-container {
+  width: 700px;
+  height: 970px;
+  background-color: #fff;
+  margin: 40px auto 0;
+  padding: 24px 40px 40px;
+}
+
+.item-name {
+  font-size: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.4;
+  color: #333;
+  font-weight: bold;
+}
+
+.item-wording {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #888;
+  line-height: 1.5;
+  & a {
+    color: #888;
+  }
+}
+
+.item-main-content {
+  width: 620px;
+  height: 420px;
+  margin: 16px 0 0;
+  // background-color: paleturquoise;
+}
+.item-main__photo {
+  float: left;
+  width: 300px;
+  height: 375px;
+  background: #fafafa;
+  &__display {
+    width: 300px;
+    height: 300px;
+    background-image: url("https://hebinuma.com/wp/wp-content/uploads/2016/06/2016-06-01-21.57.49.jpg");
+    background-position:center bottom; 
+    background-size: cover;
+  }
+  &__dots {
+    width: 300px;
+    height: 60px;
+  }
+  &__dot1 {
+    float:left;
+    width: 60px;
+    height: 60px;
+    background-image: url("https://hebinuma.com/wp/wp-content/uploads/2016/06/2016-06-01-21.57.49.jpg");
+    background-position:center bottom; 
+    background-size: cover;
+  }
+  &__dot2 {
+    float:left;
+    background-image: url("https://biz-journal.jp/images/post_17933_01.jpg");
+    background-position:center bottom; 
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    opacity: 0.4;
+  }
+  &__dot3 {
+    float:left;
+    background-image: url("https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2Fcontent%2Fpic%2F20190910%2F96958A9F889DE6EBE6E4E3E3E7E2E2E7E2EBE0E2E3EB828297E2E2E3-DSXMZO4768727023072019000003-PB1-2.jpg?auto=format%2Ccompress&ch=Width%2CDPR&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=433&ixlib=php-1.2.1&w=650&s=400c7a7d9c45c7494c80a7067e1e8703");
+    background-position:center bottom; 
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    opacity: 0.4;
+  }
+  &__dot4 {
+    float:left;
+    width: 60px;
+    height: 60px;
+    background-image: url("https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg");
+    background-position:center bottom; 
+    background-size: cover;
+    opacity: 0.4;
+  }
+  &__category {
+    display: list-item; 
+  }
+}
+// ここから「テーブル
+.item-main__detail-table {
+  float: right;
+  width: 100%;
+  max-width: 300px;
+  height: 420px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #f5f5f5;
+}
+.item-main {
+  &__th {
+    padding: 8px;
+    background: #fafafa;
+    border: 1px solid #f5f5f5;
+    width: 39%;
+    text-align: left;
+    font-weight: 400;
+  }
+  &__td {
+    padding: 8px;
+    border: 1px solid #f5f5f5;
+    width: 100%;
+    & a {
+      color: #0099e8;
+      text-decoration: none;
+      &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+    }
+  }
+} 
+// カテゴリーのアイコン
+.icon-arrow-right {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0099e8;
+}
+// 金額
+.item-price-box {
+  margin: 24px 0 0;
+  text-align: center;
+}
+.item-price {
+  margin: 0 16px 0 0;
+  font-size: 50px;
+  font-weight: 600;
+}
+.item-tax {
+  font-size: 10px;
+}
+.item-shipping-fee {
+  font-size: 16px;
+}
+// 購入ボタン
+.item-buy-btn{
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  display: block;
+  margin-top: 16px;
+  background: #ea352d;
+}
+// 商品説明
+.item-description {
+  min-height: 200px;
+  max-height: 500px;
+  padding: 32px 0 0;
+  line-height: 1.5;
+  font-size: 18px;
+  &__inner {
+    white-space: pre-wrap;
+    display: block;
+  }
+}
+.item-button-container {
+  &__right {
+    float: right;
+    &:hover {
+      opacity: 0.7;
+    }
+    & a {
+      color: #0099e8;
+    }
+  }
+}
