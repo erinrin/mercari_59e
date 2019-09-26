@@ -89,3 +89,6 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'payjp'
 gem 'mini_magick'
 gem 'ancestry'
+gem 'gretel'
+gem 'dropzonejs-rails'
+gem 'jquery-rails'
