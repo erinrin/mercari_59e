@@ -1,69 +1,175 @@
 = render "shared/header"
-
-.item-box-container
-  %h1.item-name
-    開運サプリメント
-  %p.item-wording
-    『開運サプリメント』は
-    = link_to "戸愚呂兄弟「弟」", root_path
-    さんから出品されました。
-    = link_to "ダイエット食品/コスメ・香水・美容", root_path
-    の商品で、未定から2~3日で発送されます。
-  .item-main-content
-    .item-main__photo
-      .item-main__photo__display
-      .item-main__photo__dots
-        .item-main__photo__dot1
-        .item-main__photo__dot2
-        .item-main__photo__dot3
-        .item-main__photo__dot4
-    %table.item-main__detail-table
-      .item-tbody
-        %tr.item-main__tr
-          %th.item-main__th 出品者
-          %td.item-main__td
-            = link_to "戸愚呂兄弟「弟」", root_path
-        %tr.item-main__tr
-          %th.item-main__th カテゴリー
-          %td.item-main__td
-            %ul
-              %li
-                = link_to "コスメ・香水・美容", root_path
-              %li
-                = fa_icon 'pied-piper-alt', class: "icon-arrow-right"
-                = link_to "ダイエット", root_path
-              %li
-                = fa_icon 'pied-piper-alt', class: "icon-arrow-right"
-                = link_to "ダイエット食品/コスメ", root_path
-        %tr.item-main__tr
-          %th.item-main__th ブランド
-          %td.item-main__td
-            = link_to "伊藤園", root_path
-        %tr.item-main__tr
-          %th.item-main__th 商品の状態
-          %td.item-main__td 18年前に開封済み
-        %tr.item-main__tr
-          %th.item-main__th 配送料の負担
-          %td.item-main__td 送料込み(購入者負担)
-        %tr.item-main__tr
-          %th.item-main__th 配送の方法
-          %td.item-main__td 普通郵便(定形、定形外)
-        %tr.item-main__tr
-          %th.item-main__th 配送元地域
-          %td.item-main__td カリフォルニア
-        %tr.item-main__tr
-          %th.item-main__th 発送日の目安
-          %td.item-main__td 2~3日で発送
-  .item-price-box
-    %span.item-price ¥300,000
-    %span.item-tax  (税込)
-    %span.item-shipping-fee 送料込み
-  = link_to "購入画面に進む", root_path, class: "item-buy-btn"
-  .item-description
-    %p.item-description__inner
-    買え。
-  .item-button-container
-    .item-button-container__right
-      = fa_icon 'github', class: "icon-arrow-right"
-      = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
+.item-show-page
+  .item-box-container
+    %h1.item-name
+      開運サプリメント
+    %p.item-wording
+      『開運サプリメント』は
+      = link_to "戸愚呂兄弟「弟」", root_path
+      さんから出品されました。
+      = link_to "ダイエット食品/コスメ・香水・美容", root_path
+      の商品で、未定から2~3日で発送されます。
+    .item-main-content
+      .item-main__photo
+        .item-main__photo__display
+        .item-main__photo__dots
+          .item-main__photo__dot1
+          .item-main__photo__dot2
+          .item-main__photo__dot3
+          .item-main__photo__dot4
+      %table.item-main__detail-table
+        .item-tbody
+          %tr.item-main__tr
+            %th.item-main__th 出品者
+            %td.item-main__td
+              = link_to "戸愚呂兄弟「弟」", root_path
+          %tr.item-main__tr
+            %th.item-main__th カテゴリー
+            %td.item-main__td
+              %ul
+                %li
+                  = link_to "コスメ・香水・美容", root_path
+                %li
+                  = fa_icon 'chevron-right', class: "item-icon"
+                  = link_to "ダイエット", root_path
+                %li
+                  = fa_icon 'chevron-right', class: "item-icon"
+                  = link_to "ダイエット食品/コスメ", root_path
+          %tr.item-main__tr
+            %th.item-main__th ブランド
+            %td.item-main__td
+              = link_to "伊藤園", root_path
+          %tr.item-main__tr
+            %th.item-main__th 商品の状態
+            %td.item-main__td 18年前に開封済み
+          %tr.item-main__tr
+            %th.item-main__th 配送料の負担
+            %td.item-main__td 送料込み(購入者負担)
+          %tr.item-main__tr
+            %th.item-main__th 配送の方法
+            %td.item-main__td 普通郵便(定形、定形外)
+          %tr.item-main__tr
+            %th.item-main__th 配送元地域
+            %td.item-main__td カリフォルニア
+          %tr.item-main__tr
+            %th.item-main__th 発送日の目安
+            %td.item-main__td 2~3日で発送
+    .item-price-box
+      %span.item-price ¥300,000
+      %span.item-tax  (税込)
+      %span.item-shipping-fee 送料込み
+    = link_to "購入画面に進む", root_path, class: "item-buy-btn"
+    .item-description
+      %p.item-description__inner
+      買え。
+    .item-button-container
+      .item-button-container__right
+        = fa_icon 'lock', class: "item-icon"
+        = link_to "あんしん・あんぜんへの取り組み", "https://www.mercari.com/jp/safe/description/"
   %ul.nav-item-link
+    %li.nav-item-link__prev
+      = fa_icon 'chevron-left', class: "item-icon"
+      = link_to "仙豆", "https://item.mercari.com/jp/m64932391220/"
+    %li.nav-item-link__next
+      = link_to "いちご大福", "https://item.mercari.com/jp/m99070878228/?_s=U2FsdGVkX1-fDbQC84Pn1mXA09HDCppYAvpwWQ4aNr1zq6eRGQ8eR5XHoZ7NX-LLr7d7SS8rKeDVDqa1jAXYmiGS0xp5efAorsrsJ8dmCz6RXyIiXPcipQIpYjrZiJOa"
+      = fa_icon 'chevron-right', class: "item-icon"
+  .item-social-media-box
+    %ul.social-media-box
+      %li
+        =link_to "https://www.facebook.com/", class: "social-media-box__facebook" do
+          = fa_icon 'facebook-square', class: "social-media-box__facebook__icon"
+      %li
+        =link_to "https://www.facebook.com/", class: "social-media-box__twitter" do
+          = fa_icon 'twitter', class: "social-media-box__twitter__icon"
+      %li
+        =link_to "https://www.facebook.com/", class: "social-media-box__pinterest" do
+          = fa_icon 'pinterest', class: "social-media-box__pinterest__icon"
+  .items-in-user-profile
+    = link_to "戸愚呂兄弟「弟」さんのその他の出品", item_path, class: "items-box-head"
+    .items-box-content
+      = link_to item_path, class: "items-box__sold-out" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        %p.items-box__sold-out__display
+          SOLD
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+  .items-in-user-profile
+    = link_to "他のおっさんはこちら", item_path, class: "items-box-head"
+    .items-box-content
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+      = link_to item_path, class: "items-box" do
+        = image_tag "https://pbs.twimg.com/profile_images/416437017761701888/gwrYaHez_400x400.jpeg", class: "items-box__photo"
+        .items-box-body
+          %h3.items-box-body__name
+            働いているおっさんだよ！みんな飼ってねぇん
+          .items-box-body__num
+            .items-box-body__num__price
+              ¥priceless
+= render "shared/footer"
