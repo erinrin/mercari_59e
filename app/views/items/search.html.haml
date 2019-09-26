@@ -1,0 +1,241 @@
+= render "shared/header"
+.wrapper
+  .contents_search
+    .contents_search__main
+
+      .detail
+        .detail__top
+          .detail__sort__select__top.cp_sl001
+            %select{required: ""}
+              %option{hidden: "", value: ""} 並び替え
+              %option{value: "1"} 価格が安い順
+              %option{value: "2"} 価格が高い順
+              %option{value: "3"} ドラえもん
+              %option{value: "4"} アンパンマン
+
+          
+        .detail__search
+          .detail__search__title
+            詳細検索
+
+          .detail__search__keyword
+            .detail__search__keyword__title.detail__search__select__category
+              %i.fa.fa-plus.detail__search__icons.fa-lg
+              キーワード追加する
+            
+            .detail__search__keyword__box
+              %form{action: "search", class: "detail__search__keyword__form"}
+                %input{name: "keyword",placeholder: "例)値下げ",type: "search", class:"detail__search__keyword-search"}
+          .detail_search_select
+            .detail_search_select__title.detail__search__select__category
+              %i.fa.fa-list-ul.detail__search__icons.fa-lg
+              カテゴリーを選択する
+            .detail__sort__select.cp_sl001
+              %select{required: ""}
+                %option{hidden: "", value: ""} 並び替え
+                %option{value: "1"} 価格が安い順
+                %option{value: "2"} 価格が高い順
+                %option{value: "3"} ドラえもん 
+                %option{value: "4"} アンパンマン
+
+          .detail__search__brand
+            .detail__search__brand.detail__search__select__category
+              %i.fa.fa-tag.detail__search__icons.fa-lg
+              ブランド名から探す
+            .detail__search__brand__keywordbox
+              %form{action: "search", class: "header__box__top__right"}
+                %input{name: "keyword",placeholder: "キーワード追加",type: "text", class:"detail__search__brand__keywordbox-search"}
+
+          .detail__search__size
+            .detail__search__size__title.detail__search__select__category
+              %i.fa.fa-arrows-alt.detail__search__icons.fa-lg
+              サイズを指定する
+            .detail__sort__select.cp_sl001
+              %select{required: ""}
+                %option{hidden: "", value: ""} 並び替え
+                %option{value: "1"} S
+                %option{value: "2"} M
+                %option{value: "3"} L
+                
+          .detail__search__price
+            .detail__search__price__title.detail__search__select__category
+              %i.fa.fa-btc.detail__search__icons.fa-lg
+              価格
+            .detail__sort__select.cp_sl001
+              %select{required: ""}
+                %option{hidden: "", value: ""} 選択してください
+                %option{value: "1"} 100円
+                %option{value: "2"} 200円
+                %option{value: "3"} 300円
+            .detail__sort__price__input
+              .detail__sort__price__input__min
+                %form{action: "search", class: "header__box__top__right"}
+                  %input{name: "keyword",placeholder: "¥ Min",type: "number", class:"detail__sort__price__input__box__right"}
+              .detail__sort__price__input__m
+                〜
+              .detail__sort__price__input__max
+                %form{action: "search", class: "header__box__top__right"}
+                  %input{name: "keyword",placeholder: "¥ Max",type: "number", class:"detail__sort__price__input__box__left"}
+
+          .detail__search__status
+            .detail__search__status__title.detail__search__select__category
+              %i.fa.fa-star.detail__search__icons.fa-lg
+              商品の状態
+            .detail__search__status__checkbox
+              .search_label
+                %label{for: "detail__search__status__checkbox__all"} 
+                  %input#detail__search__status__checkbox__all{type: "checkbox"}/
+                  すべて
+              .search_label
+                %label{for: "detail__search__status__checkbox__new"} 
+                  %input#detail__search__status__checkbox__new{type: "checkbox"}/
+                  新品、未使用
+            .detail__search__status__checkbox
+              .search_label
+                %label{for: "detail__search__status__checkbox__unused"} 
+                  %input#detail__search__status__checkbox__unused(type="checkbox")
+                  未使用に近い
+
+              .search_label
+                %label{for: "detail__search__status__checkbox__none_scratch"} 
+                  %input#detail__search__status__checkbox__none_scratch(type="checkbox")
+                  目立った傷や汚れなし
+            .detail__search__status__checkbox
+              .search_label
+                %label{for: "detail__search__status__checkbox__little_scratch"} 
+                  %input#detail__search__status__checkbox__little_scratch(type="checkbox")
+                  やや傷や汚れあり
+              .search_label
+                %label{for: "detail__search__status__checkbox__scratch"} 
+                  %input#detail__search__status__checkbox__scratch(type="checkbox")
+                  傷や汚れあり
+            .detail__search__status__checkbox
+              .search_label
+                %label{for: "detail__search__status__checkbox__state_is_bad"} 
+                  %input#detail__search__status__checkbox__state_is_bad(type="checkbox")
+                  全体的に状態が悪い
+
+          .detai__search__charge
+            .detai__search__charge__title.detail__search__select__category
+              %i.fa.fa-truck.detail__search__icons.fa-lg
+              配送料の負担
+            .detail__search__charge__checkbox
+              .search_label
+                %label{for: "detail__search__charge__checkbox__all"} 
+                  %input#detail__search__charge__checkbox__all(type="checkbox")
+                  すべて
+              .search_label
+                %label{for: "detail__search__charge__checkbox__cash_on_delivery"} 
+                  %input#detail__search__charge__checkbox__cash_on_delivery(type="checkbox")
+                  着払い（購入者負担）
+            .detail__search__charge__checkbox
+              .search_label
+                %label{for: "detail__search__charge__checkbox__shipping_fee_included"} 
+                  %input#detail__search__charge__checkbox__shipping_fee_included(type="checkbox")
+                  送料込み（出品者負担）
+
+          .detail__search__salestatus
+            .detail__search__salestatus__title.detail__search__select__category
+              %i.fa.fa-shopping-cart.detail__search__icons.fa-lg
+              販売状況
+            .detail__search__salestatus__checkbox
+              .search_label
+                %label{for: "detail__search__salestatus__checkbox__all"} 
+                  %input#detail__search__salestatus__checkbox__all(type="checkbox")
+                  すべて
+              .search_label
+                %label{for: "detail__search__salestatus__checkbox__on_sale"} 
+                  %input#detail__search__salestatus__checkbox__on_sale(type="checkbox")
+                  販売中
+            .detail__search__salestatus__checkbox
+              .search_label
+                %label{for: "detail__search__salestatus__checkbox__sold_out"} 
+                  %input#detail__search__salestatus__checkbox__sold_out(type="checkbox")
+                  売り切れ
+
+          .detail__search__sunbmit
+            %input(type="button" value="クリア" class="detail__search__sunbmit__gray")/
+            
+            %input(type="button" value="送信" class="detail__search__sunbmit__red")/
+            
+      .search
+        .search__result
+          .search__reselt__box
+            .search__result__box__title
+              〇〇
+            .search__result__box__message
+              の検索結果
+          .search__result__count
+            1 - 132件
+
+        .search__box
+          .itemlist__main
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+            .card
+              %a{href: 'https://item.mercari.com/jp/m50314037442/'}
+                %figure.cardbox
+                  %figcaption.cardboxdetail
+                    %span.cardtext くるま！中古！ああああああああああああああああああああああああああ
+                  .thumbnail
+                    %span.Price ¥1,000
+                    %img.cardimage{src: 'https://blog.evsmart.net/wp-content/uploads/2018/12/main-1038x576.jpg'}
+
+    .search__remodeling
+      .search__remodeling__box
+        .search__remodeling__box__title
+          %a(href="/")
+            メルカリ
+          %i.fa.fa-chevron-right
+        .search__remodeling__box__result
+          検索結果
+
+
+  %aside.bottom
+    .aaa
+    .bottom__contents
+      .bottom__contents__centerd
+        .bottom__contents__centerd__left
+          .bottom__contents__centerd__left-title スマホで簡単フリマアプリ
+          .bottom__contents__centerd__left-sub 今すぐ無料ダウンロード！
+        %figure.bottom__contents__centerd__right
+          %img.bottom__contents__centerd__right-smartphone{src: 'https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png'}
+= render "shared/footer"
