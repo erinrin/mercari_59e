@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name_first,:name_last,:name_kana_first,:name_kana_last,:nickname,:birthday,:avatar,:profile])
   end
   
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
 end
