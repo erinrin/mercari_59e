@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     :omniauth_callbacks =>  "users/omniauth_callbacks"
   }
   root to: 'items#index'
-  resources :users
+  resources :users, :items
   get 'items#search' => 'items#search'
 end
