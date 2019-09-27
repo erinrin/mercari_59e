@@ -27,7 +27,7 @@
           .header__box__down__left__brand__contents
       .header__box__down__right
       - if user_signed_in?
-        = link_to "ログアウトだ", destroy_user_session_path, metod: :delete, class: "header__box__down__right__login-link"
+        = link_to "ログアウトだ", destroy_user_session_path, method: :delete, class: "header__box__down__right__login-link"
       - else
         .header__box__down__right__new
           = link_to "新規会員登録", new_user_registration_path,class: "header__box__down__right__new-link"

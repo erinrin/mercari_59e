@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=checkbox] {
+  transform: scale(1.5);
+  margin: 5px;
+}
+.wrapper {
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px ;
+}
+
+.detail{
+  position: relative;
+  left:210px;
+  height:1315px;
+  width: 280px;
+  background-color: white;
+  margin:30px 0 30px 0px;
+    &__top{
+    background-color:whitesmoke;
+    padding-bottom:40px;
+  }
+}
+
+.detail__search{
+  padding: 16px;
+  &__title{
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom: 20px;
+  }
+  &__select__category{
+    font-weight:bold;
+    margin: 25px 0px 10px 0px;
+  }
+  &__icons{
+  color: #999999;
+
+  }
+}
+
+.search{
+  position: relative;
+  left:250px;
+  height: 100%;
+  width:700px;
+  top:35px;
+
+  &__result__box__title{
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 3px;
+    padding-bottom: 10px;
+  }
+  &__result__box__message{
+    font-size: 20px;
+  }
+  &__result__count{
+    font-size:10px;
+    opacity:0.8;
+    color:gray;
+    padding-bottom: 10px;
+  }
+
+}
+
+.search__remodeling__box{
+  display: flex;
+  position:relative;
+  left:210px;
+  height: 48px;
+  width: calc(100% - 210px);
+  line-height: 48px;
+  border-top: #dad8d8 1px solid;
+  
+&__result{
+  padding-left: 5px;
+}
+
+}
+
+.contents_search__main{
+  display: flex;
+}
+
+.search__reselt__box{
+  display: flex;
+}
+
+
+//検索
+.detail__search__keyword{
+  &__box{
+    padding: 10px 0px 20px 0px;
+  }
+  &-search{
+    background-color: white;
+    font-size: 14px;
+    height: 40px;
+    line-height: 1.4em;
+    position: relative;
+    width: 100%;
+    -webkit-appearance: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    outline: none;
+    padding: 0px 50px 0px 10px;
+    transition: all 0.3s ease-out 0s;
+  }
+}
+.detail__search__brand__keywordbox-search{
+  background-color: white;
+  font-size: 16px;
+  height: 40px;
+  line-height: 1.4em;
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  outline: none;
+  padding: 0px 50px 0px 10px;
+  transition: all 0.3s ease-out 0s;
+}
+.detail__sort__price__input{
+    display: flex;
+    width: 100%;
+    line-height: 48px;
+  &__min{
+    width:45%;
+  }
+  &__m{
+    width: 10%;
+    padding: 0px 5px 0px 5px;
+    font-size: 5px;
+    margin-top:5px;
+  }
+  &__max{
+    width: 45%;
+  }
+
+  &__box__right{
+  margin-top:10px;
+  background-color: white;
+  font-size: 14px;
+  height: 40px;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px ;
+  }
+  &__box__left{
+  margin-top:10px;
+  background-color: white;
+  font-size: 14px;
+  height: 40px;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px ;
+  }
+}
+
+
+.detail__search__sunbmit__gray {
+  position: relative;
+  top: 75px;
+  display       : inline-block;
+  font-size     : 10pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 22px 25px;
+  background    : #999999;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  width: 45%;
+}
+
+.detail__search__sunbmit__red {
+  position: relative;
+  top: 75px;
+  display       : inline-block;
+  font-size     : 10pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 22px 25px;
+  background    : #ff0000;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  width: 45%;
+  margin-left:20px;
+}
+
+.detail__search__sunbmit__red:active{
+  background    : #999999;
+}
+
+.search_label{
+  position: relative;
+  width: 48%;
+  font-size:15px;
+  height: 40px;
+}
+.detail__search__status__checkbox{
+  display: flex;
+}
+.detail__search__charge__checkbox{
+  display: flex;
+}
+
+.detail__search__salestatus__checkbox{
+  display: flex;
+}
+.fa-chevron-right{
+  opacity:0.6;
+}
+
+
+
+
+
+.detail__sort__select {
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+.detail__sort__select select {
+	width: 100%;
+	padding-right: 1.1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.detail__sort__select select::-ms-expand {
+    display: none;
+}
+.detail__sort__select.cp_sl001 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.detail__sort__select.cp_sl001::before {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.detail__sort__select.cp_sl001 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+
+
+
+
+//top
+
+
+.detail__sort__select__top {
+  position: relative;;
+	overflow: hidden;
+	width: 100%;
+}
+.detail__sort__select__top select {
+	width: 100%;
+	padding-right: 1.1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.detail__sort__select__top select::-ms-expand {
+    display: none;
+}
+.detail__sort__select__top.cp_sl001 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.detail__sort__select__top.cp_sl001::before {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.detail__sort__select__top.cp_sl001 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
