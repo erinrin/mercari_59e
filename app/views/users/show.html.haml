@@ -1,0 +1,101 @@
+= render "shared/header"
+.wrapper
+  全体
+  .content
+    .user__mypage
+      .user__mypage__sidebar
+        .user__mypage__sidebars
+          %ul.user__mypage__sidebars
+            サイドバー
+            %li.user__mypage__sidebars__item
+              マイページ
+            %li.user__mypage__sidebars__item
+              お知らせ
+            %li.user__mypage__sidebars__item
+              やることリスト
+            %li.user__mypage__sidebars__item
+              いいね！一覧
+            %li.user__mypage__sidebars__item
+              出品する
+            %li.user__mypage__sidebars__item
+              出品した商品-出品中
+            %li.user__mypage__sidebars__item
+              出品した商品-売却済み
+            %li.user__mypage__sidebars__item
+              購入した商品-取引中
+            %li.user__mypage__sidebars__item
+              購入した商品-過去の取引
+            %li.user__mypage__sidebars__item
+              ニュース一覧
+            %li.user__mypage__sidebars__item
+              評価一覧
+            %li.user__mypage__sidebars__item
+              ガイド
+            %li.user__mypage__sidebars__item
+              お問い合わせ
+
+
+          .user__mypage__sidebars
+            メルペイ
+            %ul.user__mypage__sidebars
+              %li.user__mypage__sidebars__item
+                売上
+              %li.user__mypage__sidebars__item
+                ポイント
+
+          .user__mypage__sidebars
+            設定
+            %ul.user__mypage__sidebars
+              %li.user__mypage__sidebars__item
+                プロフィール
+              %li.user__mypage__sidebars__item
+                発送元・お届け先住所変更
+              %li.user__mypage__sidebars__item
+                支払い変更
+              %li.user__mypage__sidebars__item
+                メール/パスワード
+              %li.user__mypage__sidebars__item
+                本人情報
+              %li.user__mypage__sidebars__item
+                電話番号の確認
+              %li.user__mypage__sidebars__item
+                ログアウト
+
+
+      .user__mypage__profile
+        プロフィールの箱
+        .user__mypage__profile__imagebox
+          プロフィールのアイコン、背景
+        .user__mypage__profile__tabs
+          .user__mypage__profile__tabs__message
+            お知らせ
+          .user__mypage__profile__tabs__message
+            やることリスト
+
+        .user__mypage__profile__contents
+          お知らせリスト
+          %ul.user__mypage__profile__contents
+            %li.user__mypage__profile__contents__item
+              事務所
+            %li.user__mypage__profile__contents__item
+              １０月
+            %li.user__mypage__profile__contents__item
+              増税
+            %li.user__mypage__profile__contents__item
+              P200
+            %li.user__mypage__profile__contents__item
+              KASHIMA
+            %li.user__mypage__profile__contents__itemlist
+              一覧をみる
+
+          .user__mypage__profile__product
+            .user__mypage__profile__product__tabs
+              .user__mypage__profile__tabs__message
+                お知らせ
+              .user__mypage__profile__tabs__message
+                過去の取引
+            .user__mypage__profile__trade_product
+              取引中の商品がありません
+
+
+= render "shared/footer"

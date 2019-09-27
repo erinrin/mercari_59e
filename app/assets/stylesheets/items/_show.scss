@@ -1,0 +1,22 @@
+.user__mypage{
+  display: flex;
+}
+.user__mypage__sidebar{
+  background-color:white;
+  height: 1250px;
+  width: 280px;
+}
+
+.user__mypage__profile__tabs{
+  display: flex;
+}
+
+.user__mypage__product__tabs{
+  display: flex;
+}
+
+.user__mypage__profile{
+  background-color: black;
+  height: 1250px;
+  width: 700px;
+}
