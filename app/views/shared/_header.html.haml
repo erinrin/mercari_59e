@@ -2,8 +2,9 @@
   .header__box
     .header__box__top
       .header__box__top__left
-        %a.header__box__top__left-link{href: ""}
-          %img.header__box__top__left-link-logo{:src=>"https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
+        = link_to root_path do
+          .header__box__top__left-link
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', class:'header__box__top__left-link-logo'
       %form{action: "search", class: "header__box__top__right"}
         %input{name: "keyword",placeholder: "何かお探しですか？",type: "search", class:"header__box__top__right-search"}
         %button{:type=>"submit", :class=>"header__box__top__right-button"}
@@ -12,18 +13,17 @@
     .header__box__down
       .header__box__down__left
         .header__box__down__left__category
-          %a.header__box__down__left__category-link
-            %svg.header__box__down__left__category-link-icon{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}
-              %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            %span.header__box__down__left__category-link-text カテゴリーから探す
-            %ul.clist
-              %li.clists
-                %a.header__box__down__left__category__contents__lists__list-link
+          = link_to root_path do
+            .header__box__down__left__category-link
+              %svg.header__box__down__left__category-link-icon{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}
+                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              %span.header__box__down__left__category-link-text カテゴリーから探す
         .header__box__down__left__brand
-          %a.header__box__down__left__brand-link
-            %svg.header__box__down__left__brand-link-icon{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}
-              %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
-            %span.header__box__down__left__brand-link-text ブランドから探す
+          = link_to root_path do
+            .header__box__down__left__brand-link
+              %svg.header__box__down__left__brand-link-icon{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}
+                %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              %span.header__box__down__left__brand-link-text ブランドから探す
           .header__box__down__left__brand__contents
       .header__box__down__right
       - if user_signed_in?
