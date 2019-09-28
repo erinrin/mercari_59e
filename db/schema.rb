@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 2019_09_26_073732) do
     t.text "description", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id"
+    t.integer "quality", null: false
+    t.integer "fee", null: false
+    t.integer "sendmethod", null: false
+    t.integer "senddate", null: false
+    t.integer "region", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
