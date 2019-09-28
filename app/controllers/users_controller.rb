@@ -2,6 +2,6 @@ class UsersController < ApplicationController
  def show
  end
 
-  def signUp
+  def sign_up_select
   end
 end
