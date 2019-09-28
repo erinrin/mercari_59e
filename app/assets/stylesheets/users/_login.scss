@@ -1,14 +1,14 @@
-.login {
+.log-in {
   background-color: #f5f5f5;
   height: 1090px;
   width: 100%;
 }
 
-.login a {
+.log-in a {
   text-decoration: none;
 }
-
-.login-header {
+// ヘッダー
+.log-in-header {
   width: 100%;
   height: 128px;
   text-align: center;
@@ -21,16 +21,15 @@
   }
 }
 
-.login-panel {
+.log-in-panel {
   font-family: 'Source Sans Pro', Helvetica;
   width: 456px;
-  height: 737px;
+  height: 780px;
   background-color: white;
   margin: 0 auto;
   &__account{
     padding: 40px 64px;
-    width: 328px;
-    height: 71px;
+    width: 456px;
     text-align: center;
     border-bottom: 1px solid #eee;
     p {
@@ -47,8 +46,7 @@
     }
   }
   &__sns {
-    width: 328px;
-    height: 115px;
+    width: 456px;
     padding: 32px 64px;
     line-height: 48px;
     font-size: 14px;
@@ -58,6 +56,14 @@
       background: #385185;
       color: #fff;
       text-align: center;
+      &__icon {
+        font-size: 30px !important;
+        float: left;
+        margin: 10px 0 0 15px;
+      }
+      & p {
+        margin-right: 35px;
+      }
     }
     &__google {
       display: block;
@@ -66,69 +72,76 @@
       color: #333;
       margin: 18px 0 0;
       text-align: center;
+      &__icon {
+        float: left;
+        margin: 15px 0 0 13px;
+      }
+      & p {
+        margin-right: 40px;
+      }
     }
   }
-  &__form {
-    text-align: center;
+}
+// ここからフォーム
+.log-in-form {
+  width: 456px;
+  &__email {
+    display: block;
+    height: 48px;
     width: 328px;
-    padding: 24px 64px 32px;
+    margin: 0 auto;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
   }
-}
-.login-email {
-  width: 294px;
-  height: 28px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  margin: 0 0 24px;
-}
-
-.login-pass {
-  width: 294px;
-  height: 28px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  
+  &__pass {
+    display: block;
+    height: 48px;
+    width: 328px;
+    margin: 24px auto 0;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
 }
 
 .robot-btn {
-  margin: 24px 0 0;
+  margin: 24px 0 0 24px;
   color: rgb(51, 51, 51);
   background: #f9f9f9;
   border: 1px solid #d3d3d3;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 4px 1px rgba(0,0,0,0.08);
-  width: 328px;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.08);
+  width: 300px;
   height: 76px;
 }
-
-.login-btn {
-  margin: 24px 0 0;
+.log-in-btn {
+  margin: 24px auto 0;
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
   display: block;
-  width: 100%;
+  width: 328px;
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
 }
-
-.forget-pass a {
-  color: #0099e8;
-  text-decoration: none;
-  display: block;
-  margin: 40px 0 0;
-  font-size: 14px;
-  text-align: left;
+.forget-pass {
+  width: 328px;
+  margin: 0 auto;
+  & a {
+    color: #0099e8;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+  }
 }
 
 // ここからフッター

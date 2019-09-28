@@ -1,24 +1,28 @@
-.login
-  .login-header
+.log-in
+  .log-in-header
     = link_to root_path do
-      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "login-header__logo"
-  .login-panel
-    .login-panel__account
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3296506464", class: "log-in-header__logo"
+  .log-in-panel
+    .log-in-panel__account
       %p アカウントをお持ちでない方はこちら
-      = link_to "新規会員登録", new_user_registration_path, class: 'login-panel__account__sign-up'
-    .login-panel__sns
-      = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: 'login-panel__sns__facebook'
-      = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, class: 'login-panel__sns__google'
-    .login-panel__form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "login-email", placeholder: 'メールアドレス'
-        = f.password_field :password, autocomplete: "current-password", class: "login-pass", placeholder: 'パスワード'
+      = link_to "新規会員登録", new_user_registration_path, class: 'log-in-panel__account__sign-up'
+    .log-in-panel__sns
+      = link_to user_facebook_omniauth_authorize_path, class: 'log-in-panel__sns__facebook' do
+        = fa_icon 'facebook-official', class: "log-in-panel__sns__facebook__icon"
+        %P Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path, class: 'log-in-panel__sns__google' do
+        = image_tag src = 'google-icon.png', class: "log-in-panel__sns__google__icon", size: "30x20"
+        %p Googleでログイン
+    .log-in-panel__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name), class: "log-in-form") do |f|
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "log-in-form__email", placeholder: 'メールアドレス'
+        = f.password_field :password, autocomplete: "current-password", class: "log-in-form__pass", placeholder: 'パスワード'
         .robot-btn
           = f.check_box :remember_me
-          = f.label :ロボットちゃいます
-        = f.submit "ログイン", class: "login-btn"
+          = f.label :ここにリキャプチャが入ります。
+        = f.submit "ログイン", class: "log-in-btn"
       .forget-pass
-        = render "devise/shared/links"
+        = link_to "パスワードをお忘れの方", new_password_path(resource_name)
   .login-footer
     %nav
       %ul.footer-clearfix
