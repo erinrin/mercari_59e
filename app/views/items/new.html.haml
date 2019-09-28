@@ -1,0 +1,146 @@
+%body.sellbody
+  .sellcontainer
+    %header.sellcontainer__header
+      %h1.sellcontainer__header-title
+        = link_to root_path, class: 'sellcontainer__header-title-link' do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?347780358", class: "sellcontainer__header-title-link-img"
+    .sellcontainer__main
+      %section.sellcontainer__main__centerd
+        .div
+          %h2.sellcontainer__main__centerd__head 商品の情報を入力
+          .sellform
+            = form_for @item do |f|
+              .sellform__upload
+                %h3.sellform__upload__head
+                  出品画像
+                  %span.sellform__upload__head-tag 必須
+                %p 最大10枚までアップロードできます。
+                -# .field-first
+                -#  = f.label :nickname, value: "ニックネーム", class:"field-first-label"
+                -#  %span.field-first-tag 必須
+                -#  = f.text_field :nickname, autofocus: true, class:"field-first-input", placeholder:"例)メルカリ太郎"
+                .sellform__upload__drop
+                  .sellform__upload__drop__box
+                    %pre.sellform__upload__drop__box-text ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード
+                .sellform__upload__item
+                  .sellform__upload__item__name
+                    %label.sellform__upload__item__name-label
+              .sellform__upload
+                .sellform__upload__group
+                  %label.sellform__upload__group-label
+                    商品名
+                    %span.sellform__upload__group-label-req 必須
+                  .div
+                    = f.text_field :name, autofocus: true, class:"field-first-input", placeholder:"商品名(必須40文字まで)"
+                .sellform__upload__groups
+                  %label.sellform__upload__group-label
+                    商品の説明
+                    %span.sellform__upload__group-label-req 必須
+                  .div
+                    = f.text_area :name, autofocus: true, class:"field-first-area", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    商品の詳細
+                  .sellform__upload__group__box
+                    %label.sellform__upload__group-label
+                      カテゴリー
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :buyer_id, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ], prompt: "---"
+                  .sellform__upload__group__lastbox
+                    %label.sellform__upload__group-label
+                      商品の状態
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        = f.select :buyer_id, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ], prompt: "---"
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    配送について
+                    .question?
+                  .sellform__upload__group__box
+                    %label.sellform__upload__group-label
+                      配送料の負担
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :buyer_id, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ], prompt: "---"
+                  .sellform__upload__group__middlebox
+                    %label.sellform__upload__group-label
+                      発送元の地域
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        = f.select :buyer_id, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ], prompt: "---"
+                  .sellform__upload__group__lastbox
+                    %label.sellform__upload__group-label
+                      発送までの日数
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        = f.select :buyer_id, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ], prompt: "---"
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    販売価格(300〜9,999,999)
+                    .question ?
+                  .sellform__upload__group__box
+                    %ul.sellprice
+                      %li.sellprice__top
+                        .fix
+                          %label.sellprice__left
+                            価格
+                            %span.sellform__upload__group-label-req 必須
+                          .sellprice__right
+                            %p.sellprice__right-yen¥
+                            .div
+                              .pricebox
+                                %i.selects-icon
+                                = f.text_field :buyer_id, autofocus: true, class:"field-first-input rightpr", placeholder:"例)300"
+                      %li.sellprice__box.fix
+                        .marginname 
+                          販売手数料 (10%)
+                        .marginprice 
+                          %p -
+                      .sellprice__box__left
+                      %li.sellprice__box.fix
+                        .pricebold 
+                          販売利益
+                        .totalprice 
+                          %p -
+                .sellblank.fix
+              .sellform__upload.fix
+                .div
+                  %p.selldesc 
+                    = link_to "禁止されている出品", root_path, class: 'selldesc-link'
+                    、
+                    = link_to "行為", root_path, class: 'selldesc-link'
+                    を必ずご確認ください。
+                  %p.selldesc 
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    = link_to "偽ブランドの販売", root_path, class: 'selldesc-link'
+                    は犯罪であり処罰される可能性があります。
+                  %p.selldesc 
+                    また、出品をもちまして
+                    = link_to "加盟店規約", root_path, class: 'selldesc-link'
+                    に同意したことになります。
+                = f.submit "出品する", class:"field-button"
+                = link_to root_path do
+                  .sellback もどる
+    .login-footer
+      %nav
+        %ul.footer-clearfix
+          %li
+            = link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
+          %li.footer-margin-left
+            = link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
+          %li.footer-margin-left
+            = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
+      = link_to root_path do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "login-footer__logo"
+      %p ©2019 Mercari
