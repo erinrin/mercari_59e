@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:create, :new, :edit, :show, :upate, :destroy] do
     collection do
-      get 'sign_in_select'
+      get 'sign_up_select'
     end
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
