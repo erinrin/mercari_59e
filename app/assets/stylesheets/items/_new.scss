@@ -1,0 +1,359 @@
+.sellbody {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+.sellcontainer {
+  padding: 0 0 220px;
+  &__header {
+    height: 128px;
+    text-align: center;
+    &-title {
+      margin: 40px 0 0;
+      display: inline-block;
+      &-link {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        display: inline-block;
+        margin: 0 8px 0 0;
+        &-img {
+          width: 185px;
+          height: 49px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  &__main {
+    display: block;
+    &__centerd {
+      width: 700px;
+      margin: 0 auto;
+      padding: 0;
+      background: #fff;
+      &__head {
+        padding: 32px 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        display: block;
+      }
+    }
+  }
+}
+
+.sellform {
+  &__upload {
+    padding: 40px;
+    border-top: 1px solid #eee;
+    &__head {
+      font-size: 16px;
+      font-weight: bold;
+      &-tag {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+    }
+    &__drop {
+      display: block;
+      width: 620px;
+      margin: 16px auto 0;
+      &__box {
+        width: 100%;
+        margin-left: 0;
+        float: right;
+        padding: 40px;
+        position: relative;
+        min-height: 162px;
+        background: #f5f5f5;
+        border: 1px dashed #ccc;
+        font-size: 0;
+        text-align: center;
+        -webkit-transition: -webkit-box-shadow ease-out .3s;
+        transition: -webkit-box-shadow ease-out .3s;
+        transition: box-shadow ease-out .3s;
+        transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+        cursor: pointer;
+        float: right;
+        margin-left: 2%;
+        &-text {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          display: block;
+          font-family: monospace,monospace;
+          overflow: auto;
+        }
+        &:after {
+          content: '';
+          display: block;
+          clear: both;
+          border-style: solid;
+          border-width: 0;
+        }
+      }
+    }
+    &__item {
+      padding: 40px;
+      border-top: 1px solid #eee;
+      display: block;
+      width: 620px;
+      min-height: 162px;
+      &__name {
+        margin: 0;
+        &-label {
+          font-weight: 600;
+          display: inline-block;
+        }
+      }
+    }
+    &__group {
+      margin: 0;
+      &-label {
+        font-weight: 600;
+        display: inline-block;
+        &-req {
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+      }
+      &-modest {
+        float: left;
+        font-weight: 600;
+        color: #888;
+        font-size: 14px;
+      }
+      &__box {
+        float: right;
+        width: 400px;
+        margin: 0;
+      }
+      &__middlebox {
+        margin: 40px 0 0;
+        float: right;
+        width: 400px;
+      }
+      &__lastbox {
+        margin: 40px 0 40px;
+        float: right;
+        width: 400px;
+      }
+    }
+    &__groups {
+      margin: 40px 0 0;
+    }
+  }
+}
+
+.field-first-area {
+  margin: 8px 0 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.selects {
+  margin: 8px 0 0;
+  position: relative;
+  background: #fff;
+  &-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    transform: translate(0, -50%);
+    display: inline-block;
+    font-family: 'icon-font';
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 0;
+      text-decoration: inherit;
+      vertical-align: inherit;
+    }
+  }
+}
+
+#item_buyer_id {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+.fix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.sellprice {
+  float: right;
+  width: 400px;
+  margin: 0;
+  &__top {
+    padding: 0 0 24px;
+    border: 0;
+    margin: 0;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  &__box {
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    &__left {
+      float: left;
+      padding-bottom: 20px;
+    }
+  }
+  &__left {
+    width: 50%;
+    line-height: 48px;
+    font-weight: 600;
+    float: left;
+    display: inline-block;
+  }
+  &__right {
+    width: 50%;
+    text-align: right;
+    float: right;
+    position: relative;
+    &-yen {
+      position: absolute;
+      top:28px;
+    }
+  }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.sellback {
+  width: 45%;
+  margin: 24px auto 0;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.selldesc {
+  line-height: 1.5;
+  &-link {
+    color: #0099e8;
+  }
+}
+
+.question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.pricebox {
+  margin-bottom: 20px;
+  width: 90%;
+  float: right;
+}
+
+.yenmark {
+  top: 20px;
+}
+
+.pricebold {
+  font-size: 16px;
+  font-weight: bold;
+  float: left;
+}
+
+.marginname {
+  float: left;
+}
+
+.marginprice {
+  float: right;
+}
+
+.totalprice {
+  font-size: 34px;
+  float: right;
+}
+
+.sellblank {
+  height: 40px;
+}
+
+.rightpr {
+  text-align: right;
+}
