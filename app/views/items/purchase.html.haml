@@ -1,0 +1,82 @@
+%body
+  .before
+    .top-header
+      %a{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2687693852"}/
+
+    .before-contents
+      .before-contents-info
+        .before-contents__header
+          購入内容の確認
+        .before-contents__item
+          .before-contents__item__box
+            .before-contents__item__box__image
+              %img(src="http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg" alt="item")/
+              
+            .before-contents__item__box__title
+              ゴリラ  ゴリラ  ゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラ
+          .before-contents__item__price
+            .before-contents__item__price__title
+              ¥200,000
+            .before-contents__item__price__tax
+              送料込み
+          .before-contents__item__point
+            %input(type="button" value="ポイントはありません" class="before-contents__item__point__button")/
+
+          .before-contents__item__pay
+            .before-contents__item__pay__title
+              支払い金額
+            .before-contents__item__pay__price
+              ¥2,000
+
+          .before-contents__item__buy
+            %input(type="button" value="購入する" class="before-contents__item__buy__button")/
+
+
+        .before-contents-delivery
+          .before-contents-delivery__box
+            .before-contents-delivery__box__destination
+              配送先
+              
+            %address.before-contents-delivery__box__address
+              〒100-8111 
+              %br/
+              東京都千代田区千代田１−１
+              %br/
+              松田  隆一
+            .before-contents-delivery__box__change
+              %a(href="https://www.mercari.com/jp/")
+                変更する
+                %i.fa.fa-arrow-right
+
+        .before-contents-pay
+          .before-contents-pay__box
+            .before-contents-pay__box__method
+              お支払い方法
+            .before-contents-pay__box__information
+              カード情報？
+              %br/
+              登録していないからわからない
+              %br/
+              7/23
+
+            .before-contents-delivery__box__change
+              %a(href="https://www.mercari.com/jp/")
+                変更する
+                %i.fa.fa-arrow-right
+
+    .under-footer
+      .under-footer__content
+        %nav.under-footer__content__nav
+          %ul
+            %li
+              プライバシーポリシー
+            %li
+              メルカリ利用規約
+            %li
+              特定商取引に関する表記
+        .under-footer__content__icon
+          %img(src="https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2687693852" alt="mercari")/
+          .under-footer__content__logo
+            %small
+              © 2019 Mercari
