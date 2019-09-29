@@ -1,8 +1,8 @@
 %body
   .before
     .top-header
-      %a{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2687693852"}/
+      = link_to "https://www.mercari.com/jp/" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2687693852",class: "top-header-image"
 
     .before-contents
       .before-contents-info
@@ -11,10 +11,10 @@
         .before-contents__item
           .before-contents__item__box
             .before-contents__item__box__image
-              %img(src="http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg" alt="item")/
+              =image_tag "http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg"
               
             .before-contents__item__box__title
-              ゴリラ  ゴリラ  ゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラ
+              ゴリラゴリラ ゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラ
           .before-contents__item__price
             .before-contents__item__price__title
               ¥200,000
@@ -45,9 +45,8 @@
               %br/
               松田  隆一
             .before-contents-delivery__box__change
-              %a(href="https://www.mercari.com/jp/")
-                変更する
-                %i.fa.fa-arrow-right
+              = link_to "変更する", root_path
+              %i.fa.fa-arrow-right
 
         .before-contents-pay
           .before-contents-pay__box
@@ -61,9 +60,8 @@
               7/23
 
             .before-contents-delivery__box__change
-              %a(href="https://www.mercari.com/jp/")
-                変更する
-                %i.fa.fa-arrow-right
+              = link_to "変更する", root_path
+              %i.fa.fa-arrow-right
 
     .under-footer
       .under-footer__content
@@ -76,7 +74,7 @@
             %li
               特定商取引に関する表記
         .under-footer__content__icon
-          %img(src="https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2687693852" alt="mercari")/
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2687693852"
           .under-footer__content__logo
             %small
               © 2019 Mercari
