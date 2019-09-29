@@ -1,0 +1,54 @@
+= render "shared/header"
+.wrapper
+  .content
+    .user__mypage
+      = render "shared/sidebar"
+
+      .user__mypage__profile
+        .user__mypage__profile__imagebox
+          = link_to "https://www.mercari.com/jp/u/629853077/" do
+            %img(src="https://static.mercdn.net/images/member_photo_noimage_thumb.png" alt="aa")/
+            %h2.bold えりん
+          .mypage__numbers
+            %div
+              評価
+              %span.bold 0
+            %div
+              出品数
+              %span.bold 0
+        .user__mypage__profile__tabs
+          %ul.profile__tabs
+            %li.move
+              %h3.side
+                = link_to "#mypage-tab-notification" do
+                  お知らせ
+            %li.passive
+              %h3.side
+                = link_to "#mypage-tab-todo" do
+                  やることリスト
+        .user__mypage__profile__contents
+          %ul.user__mypage__profile__contents
+            %li.user__mypage__profile__contents__item
+
+            %li.user__mypage__profile__contents__item
+              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa")/
+              増税
+            %li.user__mypage__profile__contents__item
+              P200
+            %li.user__mypage__profile__contents__item
+              KASHIMA
+            %li.user__mypage__profile__contents__itemlist
+              一覧をみる
+
+          .user__mypage__profile__product
+            .user__mypage__profile__product__tabs
+              .user__mypage__profile__tabs__message
+                お知らせ
+              .user__mypage__profile__tabs__message
+                過去の取引
+            .user__mypage__profile__trade
+              購入した商品
+              .user__mypage__profile__trade__product
+                取引中の商品がありません
+
+= render "shared/footer"
