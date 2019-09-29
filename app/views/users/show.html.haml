@@ -1,85 +1,136 @@
 = render "shared/header"
 .wrapper
-  全体
   .content
     .user__mypage
       .user__mypage__sidebar
         .user__mypage__sidebars
           %ul.user__mypage__sidebars
-            サイドバー
+            %li.user__mypage__sidebars__top
+              = link_to '/jp/mypage/' do
+                マイページ
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              マイページ
+              = link_to '/jp/mypage/notification/' do
+                お知らせ
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              お知らせ
+              = link_to '/jp/mypage/todo/' do
+                やることリスト
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              やることリスト
+              = link_to '/jp/mypage/like/history/' do
+                いいね！一覧
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              いいね！一覧
+              = link_to '/jp/sell/' do
+                出品する
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              出品する
+              = link_to '/jp/mypage/listings/listing/' do
+                出品した商品-出品中
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              出品した商品-出品中
+              = link_to '/jp/mypage/listings/completed/' do
+                出品した商品-売却済み
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              出品した商品-売却済み
+              = link_to '/jp/mypage/purchase/' do
+                購入した商品-取引中
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              購入した商品-取引中
+              = link_to '/jp/mypage/purchased/' do
+                購入した商品-過去の取引
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              購入した商品-過去の取引
+              = link_to '/jp/mypage/news/' do
+                ニュース一覧
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              ニュース一覧
+              = link_to '/jp/mypage/review/history/' do
+                評価一覧
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              評価一覧
+              = link_to '/jp/help_center/' do
+                ガイド
+                %i.fa.fa-chevron-right
             %li.user__mypage__sidebars__item
-              ガイド
-            %li.user__mypage__sidebars__item
-              お問い合わせ
+              = link_to '/jp/mypage/support/' do
+                お問い合わせ
+                %i.fa.fa-chevron-right
 
 
-          .user__mypage__sidebars
-            メルペイ
+          .user__mypage__sidebars__middle
+            %pメルペイ
             %ul.user__mypage__sidebars
               %li.user__mypage__sidebars__item
-                売上
+                = link_to '/jp/mypage/sales/' do
+                  売上
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                ポイント
-
-          .user__mypage__sidebars
-            設定
+                = link_to '/jp/mypage/point/' do
+                  ポイント
+                  %i.fa.fa-chevron-right
+          .user__mypage__sidebars__bottom
+            %p設定
             %ul.user__mypage__sidebars
               %li.user__mypage__sidebars__item
-                プロフィール
+                = link_to '/jp/mypage/profile/' do
+                  プロフィール
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                発送元・お届け先住所変更
+                = link_to '/jp/mypage/deliver_address/' do
+                  発送元・お届け先住所変更
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                支払い変更
+                = link_to '/jp/mypage/card/' do
+                  支払い変更
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                メール/パスワード
+                = link_to '/jp/mypage/email_password/' do
+                  メール/パスワード
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                本人情報
+                = link_to '/jp/mypage/identification/' do
+                  本人情報
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                電話番号の確認
+                = link_to '/jp/mypage/sms_confirmation/' do
+                  電話番号の確認
+                  %i.fa.fa-chevron-right
               %li.user__mypage__sidebars__item
-                ログアウト
+                = link_to '/jp/logout/' do
+                  ログアウト
+                  %i.fa.fa-chevron-right
 
 
       .user__mypage__profile
-        プロフィールの箱
         .user__mypage__profile__imagebox
-          プロフィールのアイコン、背景
+          = link_to "https://www.mercari.com/jp/u/629853077/" do
+            %img(src="https://static.mercdn.net/images/member_photo_noimage_thumb.png" alt="aa")/
+            %h2.bold えりん
+          .mypage__numbers
+            %div
+              評価
+              %span.bold 0
+            %div
+              出品数
+              %span.bold 0
         .user__mypage__profile__tabs
-          .user__mypage__profile__tabs__message
-            お知らせ
-          .user__mypage__profile__tabs__message
-            やることリスト
-
+          %ul.profile__tabs
+            %li.move
+              %h3.side
+                = link_to "#mypage-tab-notification" do
+                  お知らせ
+            %li.passive
+              %h3.side
+                = link_to "#mypage-tab-todo" do
+                  やることリスト
         .user__mypage__profile__contents
-          お知らせリスト
           %ul.user__mypage__profile__contents
             %li.user__mypage__profile__contents__item
-              事務所
+
             %li.user__mypage__profile__contents__item
-              １０月
-            %li.user__mypage__profile__contents__item
+              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa")/
               増税
             %li.user__mypage__profile__contents__item
               P200
@@ -94,8 +145,9 @@
                 お知らせ
               .user__mypage__profile__tabs__message
                 過去の取引
-            .user__mypage__profile__trade_product
-              取引中の商品がありません
-
+            .user__mypage__profile__trade
+              購入した商品
+              .user__mypage__profile__trade__product
+                取引中の商品がありません
 
 = render "shared/footer"
