@@ -82,19 +82,24 @@
   }
 }
 
-
-
-
-.user__mypage__profile__tabs{
-  display: flex;
-}
-
 .user__mypage__product__tabs{
   display: flex;
 }
+.profile__tabs{
+  display: flex;
+  width: 700px;
+  height: 72px;
+  &__news{
+    width: 50%;
+    background-color: red;
+  }
+  &__to-do{
+    width: 50%;
+    background-color:yellowgreen;
+  }
+}
 
 .user__mypage__profile{
-  background-color: black;
   height: 1225px;
   width: 700px;
 }
@@ -103,4 +108,52 @@
   width: 100%;
   height: 200px;
   background-image: url(https://www.beiz.jp/images_M/twinkle/twinkle_00023.jpg);
+}
+
+.user__mypage__profile__contents__item{
+  width: 700px;
+  height: 91px;
+  background-color:white;
+  border-bottom:solid rgba(238, 238, 238, 0.521) 1px ;
+  &__list{
+  width: 700px;
+  height: 91px;
+  background-color:white;
+  padding: 16px;
+    &__look{
+      width: 668px;
+      height: 56px;
+      background-color: #ccc;
+      
+    }
+  }
+}
+
+
+.user__mypage__profile__product{
+  width: 700px;
+  height:382px;
+  margin-top:40px;
+  &__title{
+  width: 700px;
+  height: 72px;
+  background-color:red;
+  }
+}
+
+.user__mypage__profile__product__tabs{
+  display: flex;
+  width: 700px;
+  height:72px;
+  &__message{
+    width: 50%;
+    
+  }
+  
+}
+
+.user__mypage__profile__trade__product{
+  width: 100%;
+  height: 238px;
+  background-color: aquamarine;
 }

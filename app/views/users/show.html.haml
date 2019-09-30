@@ -18,36 +18,39 @@
               %span.bold 0
         .user__mypage__profile__tabs
           %ul.profile__tabs
-            %li.move
+            %li.move.profile__tabs__news
               %h3.side
                 = link_to "#mypage-tab-notification" do
                   お知らせ
-            %li.passive
+            %li.passive.move.profile__tabs__to-do
               %h3.side
                 = link_to "#mypage-tab-todo" do
                   やることリスト
+
         .user__mypage__profile__contents
           %ul.user__mypage__profile__contents
             %li.user__mypage__profile__contents__item
-
+              1
             %li.user__mypage__profile__contents__item
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa")/
-              増税
+              2
             %li.user__mypage__profile__contents__item
-              P200
+              3
             %li.user__mypage__profile__contents__item
-              KASHIMA
-            %li.user__mypage__profile__contents__itemlist
-              一覧をみる
+              4
+            %li.user__mypage__profile__contents__item__list
+              .user__mypage__profile__contents__item__list__look
+                一覧をみる
 
           .user__mypage__profile__product
+            .user__mypage__profile__product__title
+              購入した商品
             .user__mypage__profile__product__tabs
-              .user__mypage__profile__tabs__message
-                お知らせ
-              .user__mypage__profile__tabs__message
+              
+              .user__mypage__profile__product__tabs__message
+                取引中
+              .user__mypage__profile__product__tabs__message
                 過去の取引
             .user__mypage__profile__trade
-              購入した商品
               .user__mypage__profile__trade__product
                 取引中の商品がありません
 
