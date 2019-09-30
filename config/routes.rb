@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get 'sign_up_select'
     end
+    member do
+      get 'plofile'
+      get 'identification'
+    end
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
     collection do

@@ -1,0 +1,34 @@
+= render "shared/header"
+.user-edit
+  .user-edit__container
+    .user-edit__container__side
+      = render "shared/sidebar"
+    .user-edit__contents
+      %h2.user-edit__contents__head
+        プロフィール
+      .user-edit__content
+        .user-edit__content__header
+          = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", class: "plofile-icon", size: "60x60"
+          = form_for current_user do |f|
+            = f.text_field :nickname, class: 'input-name', placeholder: @user.nickname, autofocus: true, autocomplete: "name"
+        .user-edit__content__text
+          = form_for current_user do |f|
+            .plofile-edit__content__main__profile
+              = f.text_field :profile, class: 'input-user-text', placeholder: @user.profile, autofocus: true, autocomplete: "profile"
+            = f.submit '変更する', class: 'plofile-edit-btn__save'
+%aside.bottom
+  .aaa
+  .bottom__contents
+    .bottom__contents__centerd
+      .bottom__contents__centerd__left
+        .bottom__contents__centerd__left-title スマホでかんたんフリマアプリ
+        .bottom__contents__centerd__left-sub 今すぐ無料ダウンロード！
+        .div
+          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png', class:'bottom__contents__centerd__left-img'
+          = link_to root_path do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class:'bottom__contents__centerd__left-app'
+          = link_to root_path do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class:'bottom__contents__centerd__left-ggl'
+      %figure.bottom__contents__centerd__right
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png', class:'bottom__contents__centerd__right-smartphone'
+= render "shared/footer"
