@@ -1,0 +1,29 @@
+= render "shared/header"
+.user__mypage
+  = render 'shared/sidebar'
+
+  .user__mypage__creditbox
+    .user__mypage__creditbox__title
+      .user__mypage__creditbox__title__message
+        %h1
+        支払い方法
+
+    %section.user__mypage__creditbox__card
+      .user__mypage__creditbox__card__list
+        .user__mypage__creditbox__card__list__message
+          クレジットカード一覧
+        .user__mypage__creditbox__card__add
+          = link_to "https://www.mercari.com/jp/mypage/card/create/" do
+            %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
+              %i.fa.fa-credit-card
+              クレジットカードを追加する
+              -# creditコントローラーのcreateに飛ばす予定
+      
+      .user__mypage__creditbox__card__change
+        = link_to "https://www.mercari.com/jp/help_center/category/6/" do
+          支払い方法について
+          %i.fa.fa-chevron-right
+
+        
+
+= render "shared/footer"
