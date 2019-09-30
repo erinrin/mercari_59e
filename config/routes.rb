@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     collection do
       get 'sign_up_select'
     end
-    member do 
+    member do
+      get 'plofile'
+      get 'identification'
       get 'credit'
     end
   end
