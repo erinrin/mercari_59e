@@ -9,11 +9,14 @@ Rails.application.routes.draw do
     end
     member do 
       get 'credit'
+      get 'logout'
     end
+    
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
     collection do
       get 'search'
     end
   end
+
 end
