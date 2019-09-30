@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'plofile'
-      get 'identification'
+      get 'comfirmation'
       get 'credit'
     end
   end
