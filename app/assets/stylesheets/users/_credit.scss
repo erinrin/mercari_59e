@@ -1,0 +1,55 @@
+.user__mypage__creditbox{
+  width: 700px;
+  height: 360px;
+  background-color: white;
+  &__title{
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 1px #eee;
+      &__message{
+      margin: 8px 24px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      }
+  }
+
+  &__card{
+    width: 572px;
+    height: 180px;
+    margin: 64px;
+    &__list{
+      padding: 0px 126px 25px 126px;
+      border-bottom: #eee 1px solid;
+      
+      &__message{
+      font-weight: bold;
+      font-size:16px;
+      }
+    }
+
+    &__add{
+      &__red{
+        margin-top:20px;
+        display       : inline-block;
+        font-size     : 14px;
+        text-align    : center;
+        cursor        : pointer;
+        padding       : 20px 24px;
+        background    : #ea352d;
+        color         : white;
+        line-height   : 0.4em;
+        transition    : .3s;
+        width: 100%;
+        
+      }
+      & i{
+        margin-right:10px;
+      }
+    }
+    &__change{
+      float: right;
+      margin-top:40px;
+    }
+  }
+}
