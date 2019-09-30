@@ -14,7 +14,7 @@
         .user-edit__content__text
           = form_for current_user do |f|
             .plofile-edit__content__main__profile
-              = f.text_field :profile, class: 'input-user-text', placeholder: @user.profile, autofocus: true, autocomplete: "profile"
+              = f.text_area :profile, class: 'input-user-text', placeholder: @user.profile, autofocus: true, autocomplete: "profile"
             = f.submit '変更する', class: 'plofile-edit-btn__save'
 %aside.bottom
   .aaa
