@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
- def show
- end
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   def sign_up_select
   end
