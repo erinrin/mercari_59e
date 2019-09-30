@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     member do
       get 'plofile'
       get 'identification'
+      get 'credit'
     end
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
