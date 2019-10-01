@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
     collection do
       get 'search'
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+
+    member do
+     get 'purchase'
     end
   end
 end
