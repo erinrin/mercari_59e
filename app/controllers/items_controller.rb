@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 
 
   def pay
-    item = Item.where(item_params).first
+    item = Item.where(buyitem_params).first
     
     if item != current_user.id
     
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
+  def buyitem_params
   params.permit(:id)
   
   end
