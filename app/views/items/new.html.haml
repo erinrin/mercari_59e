@@ -15,10 +15,6 @@
                 出品画像
                 %span.sellform__upload__head-tag 必須
               %p 最大10枚までアップロードできます。
-              -#     %pre.sellform__upload__drop__box-text ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード
-              -# .sellform__upload__item
-              -#   .sellform__upload__item__name
-              -#     %label.sellform__upload__item__name-label
           = form_for @item, html: {multipart: true} do |f| 
             = f.fields_for :images do |m|
               .sellform__upload__drop
@@ -43,14 +39,14 @@
                 .sellform__upload__group
                   %label.sellform__upload__group-modest
                     商品の詳細
-                  -# .sellform__upload__group__box-select
-                  -#   %label.sellform__upload__group-label
-                  -#     カテゴリー
-                  -#     %span.sellform__upload__group-label-req 必須
-                  -#   .div
-                  -#     .selects
-                  -#       %i.selects-icon
-                  -#       = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select field-first-input', id: 'parent_category'}
+                  .sellform__upload__group__box-select
+                    %label.sellform__upload__group-label
+                      カテゴリー
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select field-first-input', id: 'parent_category'}
                   .sellform__upload__group__lastbox
                     %label.sellform__upload__group-label
                       商品の状態
