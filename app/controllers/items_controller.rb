@@ -26,7 +26,7 @@ end
 
 def show
   @item = Item.find(params[:id])
-  @seller = User.find_by(id: @item.seller_id)
+  @seller = User.find(@item.seller_id)
   @sellerName = @seller.nickname
 end
   
@@ -40,11 +40,11 @@ end
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   private
