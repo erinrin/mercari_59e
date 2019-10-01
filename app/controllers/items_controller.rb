@@ -9,9 +9,7 @@ class ItemsController < ApplicationController
   @item = current_user.items.new
   @item.images.build
   @category_parent_array = ["---"]
-        Category.where(ancestry: nil).each do |parent|
-          @category_parent_array << parent.name
-        end
+        Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
  end
 
  def create
@@ -42,11 +40,11 @@ end
   end
 
   def get_category_children
-  @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
   def get_category_grandchildren
-  @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
