@@ -39,6 +39,29 @@ end
   def search
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+  end
+
+  def pay
+    item = Item.where(buyitem_params).first
+
+    if item != current_user.id
+
+    Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
+    charge = Payjp::Charge.create(
+    :amount => item.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+    item.update(buyer_id:current_user.id)
+
+      else
+      redirect_to root_path
+    end
+
+  end
+
   def get_category_children
     @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children
   end
@@ -50,6 +73,10 @@ end
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
+  end
+
+  def buyitem_params
+    params.permit(:id)
   end
 
 end
