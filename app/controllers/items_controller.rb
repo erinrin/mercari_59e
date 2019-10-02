@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    @seller = User.find(@item.seller_id)
-    @sellerName = @seller.nickname
+    @seller = User.find(@item.seller_id).nickname
     @category3 = Category.find(@item.category_id)
     @category2 = @category3.parent
     @category1 = @category2.parent
