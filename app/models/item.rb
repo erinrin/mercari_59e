@@ -3,10 +3,6 @@ class Item < ApplicationRecord
   has_many :images, inverse_of: :item
   accepts_nested_attributes_for :images
   belongs_to :category, optional: true
-
-
-
-
   
   enum quality:{
     "---":0,
