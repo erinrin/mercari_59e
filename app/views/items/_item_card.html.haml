@@ -1,0 +1,10 @@
+- @items.each do |item|
+  = link_to item_path(item.id), class: "items-box" do
+    - if item.images.present?
+      = image_tag "#{item.images[0].image.url}", class: "items-box__photo"
+    .items-box-body
+      %h3.items-box-body__name
+        = item.name
+      .items-box-body__num
+        .items-box-body__num__price
+          = "¥#{item.price}"

@@ -1,34 +1,39 @@
 class ItemsController < ApplicationController
 
   def index
+
   end
 
-  
- def new
-  redirect_to new_user_session_path unless user_signed_in?
-  @item = current_user.items.new
-  @item.images.build
-  @category_parent_array = ["---"]
+  def new
+    redirect_to new_user_session_path unless user_signed_in?
+    @item = current_user.items.new
+    @item.images.build
+    @category_parent_array = ["---"]
         Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
- end
-
- def create
-  @item = Item.new(item_params)
-  if @item.save!
-    params[:images][:image_url].each do |image|
-      @item.images.create!(image: image, item_id: @item.id)
-    end
-    redirect_to root_path
-  else
-    redirect_to new_items_path
   end
-end
 
-def show
-  @item = Item.find(params[:id])
-  @seller = User.find(@item.seller_id)
-  @sellerName = @seller.nickname
-end
+  def create
+    @item = Item.new(item_params)
+    if @item.save!
+      params[:images][:image_url].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+      end
+      redirect_to root_path
+    else
+      redirect_to new_items_path
+    end
+  end
+  
+  def show
+    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @sellerName = @seller.nickname
+    @category3 = Category.find(@item.category_id)
+    @category2 = @category3.parent
+    @category1 = @category2.parent
+    @images = Image.where(item_id: @item.id)
+    @items = Item.includes(:user)
+  end
   
   def edit
   end
