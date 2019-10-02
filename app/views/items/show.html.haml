@@ -8,11 +8,12 @@
       = "#{@item.name}は" 
       = link_to @seller, root_path
       さんから出品されました。"
-      = link_to "ダイエット食品/コスメ・香水・美容", root_path
+      = link_to "#{@item.category.parent.parent.name}/#{@item.category.name}", root_path
       の商品で、
       = @item.region
+      から
       = @item.senddate
-      で発送されます。
+      されます。
     .item-main-content
       .item-main__photo
         = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
@@ -40,7 +41,7 @@
           %tr.item-main__tr
             %th.item-main__th ブランド
             %td.item-main__td
-              = link_to "伊藤園", root_path
+              = link_to "赤ちゃん本舗"
           %tr.item-main__tr
             %th.item-main__th 商品の状態
             %td.item-main__td
@@ -93,11 +94,11 @@
         =link_to "https://www.facebook.com/", class: "social-media-box__pinterest" do
           = fa_icon 'pinterest', class: "social-media-box__pinterest__icon"
   .items-in-user-profile
-    = link_to "#{@sellerName}さんのその他の出品", item_path, class: "items-box-head"
+    = link_to "#{@seller}さんのその他の出品", item_path, class: "items-box-head"
     .items-box-content
       = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
   .items-in-user-profile
-    = link_to "伊藤園のダイエット食品/コスメ その他の商品", item_path, class: "items-box-head"
+    = link_to "アカチャンホンポ/#{@item.category.name} その他の商品", item_path, class: "items-box-head"
     .items-box-content
       = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
 = render "shared/footer"
