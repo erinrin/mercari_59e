@@ -15,28 +15,28 @@
       で発送されます。
     .item-main-content
       .item-main__photo
-        = image_tag "#{@images[0].image.url}", class: "item-main__photo__display"
+        = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
         .item-main__photo__dots
-          - @images.each do |image|
+          - @item.images.each do |image|
             = image_tag("#{image.image.url}", class: "item-main__photo__dot")
       %table.item-main__detail-table
         .item-tbody
           %tr.item-main__tr
             %th.item-main__th 出品者
             %td.item-main__td
-              = link_to @sellerName, root_path
+              = link_to @seller, root_path
           %tr.item-main__tr
             %th.item-main__th カテゴリー
             %td.item-main__td
               %ul
                 %li
-                  = link_to @category1.name, root_path
+                  = link_to @item.category.parent.parent.name, root_path
                 %li
                   = fa_icon 'chevron-right', class: "item-icon"
-                  = link_to @category2.name, root_path
+                  = link_to @item.category.parent.name, root_path
                 %li
                   = fa_icon 'chevron-right', class: "item-icon"
-                  = link_to @category3.name, root_path
+                  = link_to @item.category.name, root_path
           %tr.item-main__tr
             %th.item-main__th ブランド
             %td.item-main__td

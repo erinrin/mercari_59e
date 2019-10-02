@@ -26,11 +26,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    @seller = User.find(@item.seller_id).nickname
-    @category3 = Category.find(@item.category_id)
-    @category2 = @category3.parent
-    @category1 = @category2.parent
-    @images = Image.where(item_id: @item.id)
+    @seller = User.find(@item.seller_id).nickname 
     @items = Item.includes(:user)
   end
   
