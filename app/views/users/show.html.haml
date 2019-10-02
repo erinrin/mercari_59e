@@ -8,50 +8,79 @@
         .user__mypage__profile__imagebox
           = link_to "https://www.mercari.com/jp/u/629853077/" do
             %img(src="https://static.mercdn.net/images/member_photo_noimage_thumb.png" alt="aa")/
-            %h2.bold えりん
-          .mypage__numbers
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0
+            %h2.user__mypage__profile__imagebox__name
+              えりん
+          .user__mypage__profile__imagebox__numbers
+            .user__mypage__profile__imagebox__numbers__box
+              評価 
+              .user__mypage__profile__imagebox__numbers__box__value
+                0
+            .user__mypage__profile__imagebox__numbers__box
+              出品数 
+              .user__mypage__profile__imagebox__numbers__box__value
+                0
         .user__mypage__profile__tabs
-          %ul.profile__tabs
-            %li.move.profile__tabs__news
-              %h3.side
-                = link_to "#mypage-tab-notification" do
+          %ul.user__mypage__profile__tabs
+            %li.user__mypage__profile__tabs
+              %h3.user__mypage__profile__tabs__news
+                = link_to "#mypage-tab-notification",class:"profile__tabs__news__message" do
                   お知らせ
-            %li.passive.move.profile__tabs__to-do
-              %h3.side
-                = link_to "#mypage-tab-todo" do
+            %li.user__mypage__profile__tabs
+              %h3.user__mypage__profile__tabs__to-do
+                = link_to "#mypage-tab-todo",class:"profile__tabs__news__message"do
                   やることリスト
 
         .user__mypage__profile__contents
           %ul.user__mypage__profile__contents
             %li.user__mypage__profile__contents__item
-              1
+              .user__mypage__profile__contents__item__box
+                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                .user__mypage__profile__contents__item__box__text
+                  【今日まで！】本などをバーコード出品するだけで最大500ポイントがもらえる！
+                %time
+                  %i.fa.fa-clock-o
+                  1日前
+                %i.fa.fa-chevron-right
             %li.user__mypage__profile__contents__item
-              2
+              .user__mypage__profile__contents__item__box
+                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                .user__mypage__profile__contents__item__box__text
+                  【明日まで！】スマホ出品で最大1000ポイントがもらえる♪
+                %time
+                  %i.fa.fa-clock-o
+                  2日前
+                %i.fa.fa-chevron-right
             %li.user__mypage__profile__contents__item
-              3
-            %li.user__mypage__profile__contents__item
-              4
+              .user__mypage__profile__contents__item__box
+                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                .user__mypage__profile__contents__item__box__text
+                  事務局から個別メッセージ「Googleログイン通知」
+                %time
+                  %i.fa.fa-clock-o
+                  2日前
+                %i.fa.fa-chevron-right
             %li.user__mypage__profile__contents__item__list
               .user__mypage__profile__contents__item__list__look
-                一覧をみる
+                一覧を見る
 
           .user__mypage__profile__product
             .user__mypage__profile__product__title
               購入した商品
             .user__mypage__profile__product__tabs
-              
-              .user__mypage__profile__product__tabs__message
+              .user__mypage__profile__product__tabs__message__left
                 取引中
-              .user__mypage__profile__product__tabs__message
+              .user__mypage__profile__product__tabs__message__right
                 過去の取引
             .user__mypage__profile__trade
               .user__mypage__profile__trade__product
                 取引中の商品がありません
-
+  %aside.bottom
+    .aaa
+    .bottom__contents
+      .bottom__contents__centerd
+        .bottom__contents__centerd__left
+          .bottom__contents__centerd__left-title スマホで簡単フリマアプリ
+          .bottom__contents__centerd__left-sub 今すぐ無料ダウンロード！
+        %figure.bottom__contents__centerd__right
+          %img.bottom__contents__centerd__right-smartphone{src: 'https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png'}
 = render "shared/footer"
