@@ -85,22 +85,237 @@
 
 
 
-.user__mypage__profile__tabs{
-  display: flex;
-}
 
-.user__mypage__product__tabs{
-  display: flex;
-}
 
 .user__mypage__profile{
-  background-color: black;
   height: 1225px;
   width: 700px;
 }
 
 .user__mypage__profile__imagebox{
-  width: 100%;
   height: 200px;
+  padding: 20px;
+  text-align: center;
   background-image: url(https://www.beiz.jp/images_M/twinkle/twinkle_00023.jpg);
+  a{
+    display: block;
+    top: 50%;
+    left: 0;
+    right: 0;
+  }  
+    & img{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+  &__name{
+    color:black;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px
+  }
+}
+  
+
+
+.user__mypage__profile__imagebox__numbers{
+  width: 100%;
+  &__box{
+    font-size: 14px;
+    margin-top: 10px;
+    display: inline-block;
+    &__value{
+    display: inline-block;
+    font-weight: 600;
+    }
+  }
+}
+
+
+.user__mypage__profile__tabs{
+  display: flex;
+  width: 700px;
+  height: 72px;
+  &__news{
+    border-top: 2px solid #ea352d;
+    width: 350px;
+    background-color: #fff;
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 72px;
+    text-align: center;
+    font-weight: bold;
+    a{
+      color:black;
+    }
+  }
+  &__to-do{
+    width: 350px;
+    background-color:#eee;
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+    text-align: center;
+    font-weight: bold;
+    a{
+      color:black;
+    }
+  }
+}
+
+
+
+
+
+.user__mypage__profile__contents__item__box{
+  width: 668px;
+  height: 48px;
+  background-color:#fff;
+  & img{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+}
+.fa-chevron-right{
+  float: right;
+  top: 50%;
+  right: 16px;
+  }
+
+
+.user__mypage__profile__contents__item{
+  width: 700px;
+  height: 91px;
+  background-color:white;
+  border-bottom:solid rgba(238, 238, 238, 0.521) 1px ;
+  padding: 16px;
+  &__list{
+    width: 700px;
+    height: 91px;
+    background-color:white;
+    padding: 16px;
+    &__look{
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background-color: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+}
+
+
+.user__mypage__profile__product{
+  width: 700px;
+  height:382px;
+  margin-top:40px;
+  &__title{
+    padding: 0 16px;
+    padding: 0 4%;
+    background-color: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+}
+
+.user__mypage__profile__product__tabs{
+  display: flex;
+  width: 700px;
+  height:72px;
+  &__message__left{
+    border-top: 2px solid #ea352d;
+    width: 50%;
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+    background-color: #fafafa;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__message__right{
+    width: 50%;
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+    background-color: #eee;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+}
+
+.user__mypage__profile__trade{
+  background-color: #fafafa;
+  .user__mypage__profile__trade__product{
+    width: 100%;
+    height: 238px;
+    background-color: #fafafa;
+    padding: 160px 0 60px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 600;
+    background: url(https://mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?28086846);
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+  }
+}
+
+.bottom {
+  color: rgb(255, 255, 255);
+  background: black center center / cover;
+  background-position: center center;
+  margin-top: auto;
+  &__contents {
+    background: url() center center / cover;
+    background-position: center center;
+    &__centerd {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 750px;
+      margin: 0px auto;
+      &__left {
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        &-title {
+          color: rgb(255, 255, 255);
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        &-sub {
+          color: rgb(255, 255, 255);
+          font-size: 35px;
+          margin-bottom: 20px;
+        }
+      }
+      &__right {
+        display: block;
+        margin: 0;
+        &-smartphone {
+          height: 260px;
+          width: 300px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }
