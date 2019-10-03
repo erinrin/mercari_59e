@@ -18,6 +18,11 @@ Rails.application.routes.draw do
       get 'search'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+
+    member do
+      get 'purchase'
     end
   end
 end

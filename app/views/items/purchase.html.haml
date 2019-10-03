@@ -14,10 +14,10 @@
               =image_tag "http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg"
               
             .before-contents__item__box__title
-              ゴリラゴリラ ゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラゴリラ
+              = @item.name
           .before-contents__item__price
             .before-contents__item__price__title
-              ¥200,000
+              = "¥#{@item.price}"
             .before-contents__item__price__tax
               送料込み
           .before-contents__item__point
@@ -27,10 +27,11 @@
             .before-contents__item__pay__title
               支払い金額
             .before-contents__item__pay__price
-              ¥2,000
+              = "¥#{@item.price}"
 
           .before-contents__item__buy
-            %input(type="button" value="購入する" class="before-contents__item__buy__button")/
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b0fdf8eea634ce434a90095a"}
 
 
         .before-contents-delivery
