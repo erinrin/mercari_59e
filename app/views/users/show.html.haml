@@ -7,7 +7,7 @@
       .user__mypage__profile
         .user__mypage__profile__imagebox
           = link_to "https://www.mercari.com/jp/u/629853077/" do
-            %img(src="https://static.mercdn.net/images/member_photo_noimage_thumb.png" alt="aa")/
+            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt:"noimage"
             %h2.user__mypage__profile__imagebox__name
               えりん
           .user__mypage__profile__imagebox__numbers
@@ -34,7 +34,7 @@
           %ul.user__mypage__profile__contents
             %li.user__mypage__profile__contents__item
               .user__mypage__profile__contents__item__box
-                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                =image_tag "https://static.mercdn.net/images/mercari_profile.png",alt:"mercari logo"
                 .user__mypage__profile__contents__item__box__text
                   【今日まで！】本などをバーコード出品するだけで最大500ポイントがもらえる！
                 %time
@@ -43,7 +43,7 @@
                 %i.fa.fa-chevron-right
             %li.user__mypage__profile__contents__item
               .user__mypage__profile__contents__item__box
-                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                =image_tag "https://static.mercdn.net/images/mercari_profile.png",alt:"mercari logo"
                 .user__mypage__profile__contents__item__box__text
                   【明日まで！】スマホ出品で最大1000ポイントがもらえる♪
                 %time
@@ -52,7 +52,7 @@
                 %i.fa.fa-chevron-right
             %li.user__mypage__profile__contents__item
               .user__mypage__profile__contents__item__box
-                %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="aa" )/
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png",alt:"mercari logo"
                 .user__mypage__profile__contents__item__box__text
                   事務局から個別メッセージ「Googleログイン通知」
                 %time
