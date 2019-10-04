@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       get 'plofile'
       get 'identification'
       get 'credit'
+      get 'logout'
     end
+    
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
     collection do
@@ -25,4 +27,5 @@ Rails.application.routes.draw do
       get 'purchase'
     end
   end
+
 end
