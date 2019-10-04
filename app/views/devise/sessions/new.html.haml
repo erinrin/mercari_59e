@@ -17,9 +17,7 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name), class: "log-in-form") do |f|
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "log-in-form__email", placeholder: 'メールアドレス'
         = f.password_field :password, autocomplete: "current-password", class: "log-in-form__pass", placeholder: 'パスワード'
-        .robot-btn
-          = f.check_box :remember_me
-          = f.label :ここにリキャプチャが入ります。
+        = recaptcha_tags
         = f.submit "ログイン", class: "log-in-btn"
       .forget-pass
         = link_to "パスワードをお忘れの方", new_password_path(resource_name)

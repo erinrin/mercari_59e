@@ -305,7 +305,7 @@ body {
   background-position: center center;
   margin-top: auto;
   &__contents {
-    background: url(https://img.freepik.com/free-photo/_23-2148238620.jpg?size=626&ext=jpg) center center / cover;
+    background: image-url('aside.jpg') center center / cover !important;
     background-position: center center;
     &__centerd {
       display: flex;

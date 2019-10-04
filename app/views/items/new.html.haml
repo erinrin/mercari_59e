@@ -67,7 +67,7 @@
                       .selects
                         %i.selects-icon
                         = f.select :fee, Item.fees.keys, {}, {class: 'field-first-input'}
-                  .sellform__upload__group__box
+                  .sellform__upload__group__middlebox
                     %label.sellform__upload__group-label
                       配送の方法
                       %span.sellform__upload__group-label-req 必須
@@ -149,7 +149,3 @@
       = link_to root_path do
         = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "login-footer__logo"
       %p ©2019 Mercari
-= form_for @item, html: {multipart: true, class: "dropzone"} do |f| 
-  = f.fields_for :images, html: {class: 'dropzone', id: "dropzone"} do |m|
-    = m.file_field :image, id: 'files-field', multiple: true
-  = f.submit "send"

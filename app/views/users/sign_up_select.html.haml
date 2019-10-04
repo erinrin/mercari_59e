@@ -11,10 +11,10 @@
           = link_to new_user_registration_path, class: 'sign-up-select-main-container__form__content__email' do
             = fa_icon 'envelope-o', class: "sign-up-select-main-container__form__content__email__icon"
             %P メールアドレスで登録する
-          = link_to root_path, class: 'sign-up-select-main-container__form__content__facebook' do
+          = link_to user_facebook_omniauth_authorize_path, class: 'sign-up-select-main-container__form__content__facebook' do
             = fa_icon 'facebook-official', class: "sign-up-select-main-container__form__content__facebook__icon"
             %P Facebookで登録する
-          = link_to root_path, class: 'sign-up-select-main-container__form__content__google' do
+          = link_to user_google_oauth2_omniauth_authorize_path, class: 'sign-up-select-main-container__form__content__google' do
             = image_tag src = 'google-icon.png', class: "sign-up-select-main-container__form__content__google__icon", size: "30x20"
             %p Googleで登録する
   .login-footer
