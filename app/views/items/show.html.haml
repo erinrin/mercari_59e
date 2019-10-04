@@ -6,61 +6,68 @@
       = @item.name
     %p.item-wording
       = "#{@item.name}は" 
-      = link_to @sellerName, root_path
+      = link_to @seller, root_path
       さんから出品されました。"
-      = link_to "ダイエット食品/コスメ・香水・美容", root_path
-      の商品で、未定から2~3日で発送されます。
+      = link_to "#{@item.category.parent.parent.name}/#{@item.category.name}", root_path
+      の商品で、
+      = @item.region
+      から
+      = @item.senddate
+      されます。
     .item-main-content
       .item-main__photo
-        = image_tag "http://solemo.jp/img/goods/1/000010667.jpg", class: "item-main__photo__display"
+        = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
         .item-main__photo__dots
-          = image_tag "http://solemo.jp/img/goods/1/000010667.jpg", class: "item-main__photo__dot"
-          = image_tag "https://ushigyu.net/wp-content/uploads/2018/04/pekochan-protein-1-728x546.jpg", class: "item-main__photo__dot"
-          = image_tag "https://static.mercdn.net/thumb/photos/m76581252461_1.jpg", class: "item-main__photo__dot"
-          = image_tag "https://pbs.twimg.com/profile_images/1022356914766671873/3ndTWIlH_400x400.jpg", class: "item-main__photo__dot"
+          - @item.images.each do |image|
+            = image_tag("#{image.image.url}", class: "item-main__photo__dot")
       %table.item-main__detail-table
         .item-tbody
           %tr.item-main__tr
             %th.item-main__th 出品者
             %td.item-main__td
-              = link_to @sellerName, root_path
+              = link_to @seller, root_path
           %tr.item-main__tr
             %th.item-main__th カテゴリー
             %td.item-main__td
               %ul
                 %li
-                  = link_to "コスメ・香水・美容", root_path
+                  = link_to @item.category.parent.parent.name, root_path
                 %li
                   = fa_icon 'chevron-right', class: "item-icon"
-                  = link_to "ダイエット", root_path
+                  = link_to @item.category.parent.name, root_path
                 %li
                   = fa_icon 'chevron-right', class: "item-icon"
-                  = link_to "ダイエット食品/コスメ", root_path
+                  = link_to @item.category.name, root_path
           %tr.item-main__tr
             %th.item-main__th ブランド
             %td.item-main__td
-              = link_to "伊藤園", root_path
+              = link_to "赤ちゃん本舗"
           %tr.item-main__tr
             %th.item-main__th 商品の状態
-            %td.item-main__td 非常に悪いけど??
+            %td.item-main__td
+              = @item.quality
           %tr.item-main__tr
             %th.item-main__th 配送料の負担
-            %td.item-main__td 送料込み(購入者負担)
+            %td.item-main__td
+              = @item.fee
           %tr.item-main__tr
             %th.item-main__th 配送の方法
-            %td.item-main__td 普通郵便(定形、定形外)
+            %td.item-main__td
+              = @item.sendmethod
           %tr.item-main__tr
             %th.item-main__th 配送元地域
-            %td.item-main__td カリフォルニア
+            %td.item-main__td
+              = @item.region
           %tr.item-main__tr
             %th.item-main__th 発送日の目安
-            %td.item-main__td 2~3日で発送
+            %td.item-main__td
+              = @item.senddate
     .item-price-box
       %span.item-price
         = "¥#{@item.price}"
       %span.item-tax  (税込)
       %span.item-shipping-fee 送料込み
-    = link_to "購入画面に進む", root_path, class: "item-buy-btn"
+    = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
     .item-description
       %p.item-description__inner
       = @item.description
@@ -87,97 +94,11 @@
         =link_to "https://www.facebook.com/", class: "social-media-box__pinterest" do
           = fa_icon 'pinterest', class: "social-media-box__pinterest__icon"
   .items-in-user-profile
-    = link_to "#{}さんのその他の出品", item_path, class: "items-box-head"
+    = link_to "#{@seller}さんのその他の出品", item_path, class: "items-box-head"
     .items-box-content
-      = link_to item_path, class: "items-box__sold-out" do
-        = image_tag "https://imgfp.hotp.jp/IMGH/41/99/P032094199/P032094199_480.jpg", class: "items-box__photo"
-        %p.items-box__sold-out__display
-          SOLD
-        .items-box-body
-          %h3.items-box-body__name
-            僕が1習慣前に作ったお腹にやさしい料理です。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥120,000
-      = link_to item_path, class: "items-box" do
-        = image_tag "https://static.mercdn.net/thumb/photos/m76581252461_1.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            体を引き締めたいあなたに。おすすめですん。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥45,000
-      = link_to item_path, class: "items-box__sold-out" do
-        = image_tag "https://pbs.twimg.com/media/Do0sx1vU4AIncah.jpg", class: "items-box__photo"
-        %p.items-box__sold-out__display
-          SOLD
-        .items-box-body
-          %h3.items-box-body__name
-            コンビニに売ってる？そんなもん知らねぇよ。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥4,800,000
-      = link_to item_path, class: "items-box" do
-        = image_tag "https://ushigyu.net/wp-content/uploads/2018/04/pekochan-protein-1-728x546.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            これ、僕はあんまり好きじゃないね。でも買ってね。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥300
-      = link_to item_path, class: "items-box" do
-        = image_tag "http://solemo.jp/img/goods/1/000010667.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            草
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥6,500
+      = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
   .items-in-user-profile
-    = link_to "伊藤園のダイエット食品/コスメ その他の商品", item_path, class: "items-box-head"
+    = link_to "アカチャンホンポ/#{@item.category.name} その他の商品", item_path, class: "items-box-head"
     .items-box-content
-      = link_to item_path, class: "items-box__sold-out" do
-        = image_tag "https://imgfp.hotp.jp/IMGH/41/99/P032094199/P032094199_480.jpg", class: "items-box__photo"
-        %p.items-box__sold-out__display
-          SOLD
-        .items-box-body
-          %h3.items-box-body__name
-            僕が1習慣前に作ったお腹にやさしい料理です。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥120,000
-      = link_to item_path, class: "items-box" do
-        = image_tag "https://static.mercdn.net/thumb/photos/m76581252461_1.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            体を引き締めたいあなたに。おすすめですん。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥45,000
-      = link_to item_path, class: "items-box__sold-out" do
-        = image_tag "https://pbs.twimg.com/media/Do0sx1vU4AIncah.jpg", class: "items-box__photo"
-        %p.items-box__sold-out__display
-          SOLD
-        .items-box-body
-          %h3.items-box-body__name
-            コンビニに売ってる？そんなもん知らねぇよ。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥4,800,000
-      = link_to item_path, class: "items-box" do
-        = image_tag "https://ushigyu.net/wp-content/uploads/2018/04/pekochan-protein-1-728x546.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            これ、僕はあんまり好きじゃないね。でも買ってね。
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥300
-      = link_to item_path, class: "items-box" do
-        = image_tag "http://solemo.jp/img/goods/1/000010667.jpg", class: "items-box__photo"
-        .items-box-body
-          %h3.items-box-body__name
-            草
-          .items-box-body__num
-            .items-box-body__num__price
-              ¥6,500
+      = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
 = render "shared/footer"

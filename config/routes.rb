@@ -11,11 +11,20 @@ Rails.application.routes.draw do
       get 'plofile'
       get 'identification'
       get 'credit'
+      get 'logout'
     end
+    
   end
   resources :items, only: [:index, :create, :new, :edit, :show, :update, :destroy] do
     collection do
       get 'search'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
+
+    member do
+      get 'purchase'
     end
   end
 
