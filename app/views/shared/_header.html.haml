@@ -26,10 +26,12 @@
               %span.header__box__down__left__brand-link-text ブランドから探す
           .header__box__down__left__brand__contents
       .header__box__down__right
-      - if user_signed_in?
-        = link_to "ログアウトだ", destroy_user_session_path, method: :delete, class: "header__box__down__right__login-link"
-      - else
-        .header__box__down__right__new
-          = link_to "新規会員登録", sign_up_select_users_path,class: "header__box__down__right__new-link"
-        .header__box__down__right__login
-          = link_to "ログイン", new_user_session_path,class: "header__box__down__right__login-link"
+        - if user_signed_in?
+          = link_to user_path(current_user.id), class: "mypagebox" do
+            = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', class:'mypageimg'
+            %p.mypagelink マイページ
+        - else
+          .header__box__down__right__new
+            = link_to "新規会員登録", sign_up_select_users_path,class: "header__box__down__right__new-link"
+          .header__box__down__right__login
+            = link_to "ログイン", new_user_session_path,class: "header__box__down__right__login-link"

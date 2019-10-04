@@ -207,3 +207,28 @@
       }
     }
   }
+
+.mypagelink {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 32px;
+  transform: scale(1);
+  transition: all 0.3s ease-out 0s;
+  color: black;
+  text-decoration: none;
+} 
+
+.mypageimg {
+  margin-right: 10px;
+  width: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 33px;
+}
+
+.mypagebox {
+  display: flex;
+}
