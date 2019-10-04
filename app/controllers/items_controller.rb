@@ -5,11 +5,14 @@ class ItemsController < ApplicationController
   end
 
   def new
-    redirect_to new_user_session_path unless user_signed_in?
+    if user_signed_in?
     @item = current_user.items.new
     @item.images.build
     @category_parent_array = ["---"]
         Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
