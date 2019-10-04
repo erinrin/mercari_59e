@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def identification
+    @user = User.find(params[:id])
   end
 
   def update
