@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-
+    @items = Item.order(created_at: :desc).limit(10)
+    @category_parent = Category.where(ancestry: nil)
   end
 
   def new
