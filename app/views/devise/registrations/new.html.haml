@@ -29,11 +29,17 @@
           .field-first
             = f.label :nickname, value: "ニックネーム", class:"field-first-label"
             %span.field-first-tag 必須
+          - if @user.nil?
             = f.text_field :nickname, autofocus: true, class:"field-first-input", placeholder:"例)メルカリ太郎"
+          - else
+            = f.text_field :nickname, autofocus: true, class:"field-first-input", value:"#{@user.nickname}"
           .field-groups
             = f.label :email, value: "メールアドレス", class:"field-first-label"
             %span.field-first-tag 必須
+          - if @user.nil?
             = f.email_field :email, autofocus: true, autocomplete: "email",class:"field-first-input", placeholder:"PC・携帯どちらでも可"
+          - else
+            = f.email_field :email, autofocus: true, autocomplete: "email",class:"field-first-input", value:"#{@user.email}"
           .field-groups
             = f.label :password, value: "パスワード", class:"field-first-label"
             %span.field-first-tag 必須

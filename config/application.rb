@@ -11,6 +11,7 @@ module Mercari59e
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

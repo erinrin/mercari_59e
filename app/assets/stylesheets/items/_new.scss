@@ -379,10 +379,18 @@
 .preview {
   height:60px;
   float:left;
+  margin-right: 10px;
 }
 
 .boxforpreview {
   height:70px;
   width: 70px;
   display: inline;
+}
+
+#myfile {
+  opacity: 0;
+  height:100px;
+  width:100%;
+  color: #333;
 }
