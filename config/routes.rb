@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
-  resources :users, only: [:create, :new, :edit, :show, :upate, :destroy] do
+  resources :users, only: [:create, :new, :edit, :show, :update, :destroy] do
     collection do
       get 'sign_up_select'
     end
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
     
   end
-  resources :items, only: [:index, :create, :new, :edit, :show, :upate, :destroy] do
+  resources :items, only: [:index, :create, :new, :edit, :show, :update, :destroy] do
     collection do
       get 'search'
       get 'get_category_children', defaults: { format: 'json' }
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses, only: [:create, :edit, :update]
 end

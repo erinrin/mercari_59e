@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
   has_many :items, foreign_key: 'buyer_id'
   has_many :items, foreign_key: 'seller_id'
-  belongs_to :address, foreign_key: 'user_id',optional: true
+  has_one :address, foreign_key: 'user_id'
   belongs_to :card, foreign_key: 'user_id',optional: true
   has_many :sns_credentials, dependent: :destroy
   validates :nickname, presence: true

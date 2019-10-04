@@ -12,13 +12,14 @@ class UsersController < ApplicationController
   end
 
   def identification
+    @user = User.find(params[:id])
   end
 
   def update
     if current_user.update(user_params)
       redirect_to user_path
     else
-      render :edit
+      render :plofile
     end
   end
 
