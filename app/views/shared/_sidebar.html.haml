@@ -2,7 +2,7 @@
   .user__mypage__sidebars
     %ul.user__mypage__sidebars
       %li.user__mypage__sidebars__top
-        = link_to '/jp/mypage/' do
+        = link_to user_path(current_user.id) do
           マイページ
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
@@ -70,7 +70,7 @@
       %p設定
       %ul.user__mypage__sidebars
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/profile/' do
+          = link_to plofile_user_path(current_user.id) do
             プロフィール
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item

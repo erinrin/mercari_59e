@@ -1,0 +1,10 @@
+= render "shared/header"
+.user__mypage
+  = render 'shared/sidebar'
+
+  .user__mypage__logout
+    .user__mypage__logout__button
+      %button{type: "submit" ,class: "user__mypage__logout__button__red"}
+        = link_to "ログアウト",destroy_user_session_path,method: :delete,class:"user__mypage__logout__button__text"
+        
+= render "shared/footer"
