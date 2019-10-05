@@ -15,7 +15,7 @@
         .user__mypage__creditbox__card__add
 
         - if @card.blank?
-        
+
           = link_to new_card_path do
             %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
               %i.fa.fa-credit-card
@@ -33,12 +33,6 @@
             %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
               削除する
         
-
-          -# = link_to new_card_path do
-          -#   %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
-          -#     %i.fa.fa-credit-card
-          -#     クレジットカードを追加する
-              -# creditコントローラーのcreateに飛ばす予定
       
       .user__mypage__creditbox__card__change
         = link_to "https://www.mercari.com/jp/help_center/category/6/" do
