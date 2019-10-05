@@ -22,7 +22,7 @@ class CardController < ApplicationController
   end
 
   def delete 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'

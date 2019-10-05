@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def credit
-  binding.pry
     @card = Card.find_by(user_id: current_user.id)
 
     if @card.blank?
