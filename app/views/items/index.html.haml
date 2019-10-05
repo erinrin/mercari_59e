@@ -26,20 +26,9 @@
           = link_to root_path do
             .itemlist__top-more もっと見る
         .itemlist__main
-          -# = render partial: "items/new_item_card"
           - @items.each do |item|
             - if item.category.root.id == 1
-              .card
-                = link_to item_path(item.id), class: "cardbox" do
-                  - if item.images.present?
-                    %figure.cardbox
-                      %figcaption.cardboxdetail
-                        %span.cardtext
-                        = item.name
-                      .thumbnail
-                        %span.Price
-                          ="¥#{item.price}"
-                        = image_tag "#{item.images[0].image.url}", class: "cardimage"
+              = render partial: "items/card",locals:{ item: item }
       .itemlist.sub
         .itemlist__top
           %h3.itemlist__top-title メンズ新着アイテム
@@ -48,17 +37,7 @@
         .itemlist__main
           - @items.each do |item|
             - if item.category.root.id == 200
-              .card
-                = link_to item_path(item.id), class: "cardbox" do
-                  - if item.images.present?
-                    %figure.cardbox
-                      %figcaption.cardboxdetail
-                        %span.cardtext
-                        = item.name
-                      .thumbnail
-                        %span.Price
-                          ="¥#{item.price}"
-                        = image_tag "#{item.images[0].image.url}", class: "cardimage"
+              = render partial: "items/card",locals:{ item: item }
       .itemlist.sub
         .itemlist__top
           %h3.itemlist__top-title 家電・スマホ・カメラ新着アイテム
@@ -67,17 +46,7 @@
         .itemlist__main
           - @items.each do |item|
             - if item.category.root.id == 573
-              .card
-                = link_to item_path(item.id), class: "cardbox" do
-                  - if item.images.present?
-                    %figure.cardbox
-                      %figcaption.cardboxdetail
-                        %span.cardtext
-                        = item.name
-                      .thumbnail
-                        %span.Price
-                          ="¥#{item.price}"
-                        = image_tag "#{item.images[0].image.url}", class: "cardimage"
+              = render partial: "items/card",locals:{ item: item }
     .topcategories
       %h2.topcategories__title 人気のブランド
       .topcategories__box
