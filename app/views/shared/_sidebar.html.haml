@@ -86,7 +86,7 @@
             メール/パスワード
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/identification/' do
+          = link_to identification_user_path(current_user.id) do
             本人情報
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
