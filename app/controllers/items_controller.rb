@@ -44,21 +44,31 @@ class ItemsController < ApplicationController
 
   def purchase
     @item = Item.find(params[:id])
+
+    @card = Card.where(user_id: current_user.id).first
+    
+    if @card.blank?
+    
+      else
+      Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def pay
     item = Item.where(buyitem_params).first
 
     if item != current_user.id
-
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
-    charge = Payjp::Charge.create(
+    Payjp::Charge.create(
     :amount => item.price,
-    :card => params['payjp-token'],
+    :customer => card.customer_id, 
     :currency => 'jpy',
-    )
+  )
     item.update(buyer_id:current_user.id)
-
+      redirect_to root_path
       else
       redirect_to root_path
     end
