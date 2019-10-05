@@ -34,9 +34,24 @@ class ItemsController < ApplicationController
   end
   
   def edit
+
+  if user_signed_in?
+    @item = Item.find(params[:id])
+    Image.find(@item.images.ids)
+    @category_parent_array = ["---"]
+      Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
+    else
+      redirect_to new_user_session_path
+    end
+
   end
   
+
   def update
+
+  @item = Item.find(params[:id]).update(update_params)
+
+  redirect_to root_path
   end
   
   def search
@@ -76,6 +91,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
+  end
+
+  def update_params
+  params.require(:item).permit(:id,:name, :price, :description, :seller_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
   def buyitem_params
