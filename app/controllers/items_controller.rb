@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     @card = Card.where(user_id: current_user.id).first
-    
+
     if @card.blank?
     
       else
@@ -57,9 +57,9 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    item = Item.where(buyitem_params).first
+    item = Item.find(params[:id])
 
-    if item != current_user.id
+    if item.seller_id != current_user.id
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
     Payjp::Charge.create(
@@ -69,7 +69,9 @@ class ItemsController < ApplicationController
   )
     item.update(buyer_id:current_user.id)
       redirect_to root_path
+
       else
+
       redirect_to root_path
     end
 
@@ -86,10 +88,6 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
-  end
-
-  def buyitem_params
-    params.permit(:id)
   end
 
 end
