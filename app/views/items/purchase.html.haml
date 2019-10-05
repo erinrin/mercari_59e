@@ -11,7 +11,7 @@
         .before-contents__item
           .before-contents__item__box
             .before-contents__item__box__image
-              =image_tag "http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg"
+              = image_tag "#{@item.images[0].image.url}"
               
             .before-contents__item__box__title
               = @item.name
