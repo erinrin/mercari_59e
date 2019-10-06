@@ -28,10 +28,9 @@ class UsersController < ApplicationController
   end
 
   def credit
-    @card = Card.find_by(user_id: current_user.id)
+    @card = current_user.card
 
-    if @card.blank?
-    else
+    if @card.present?
       Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
