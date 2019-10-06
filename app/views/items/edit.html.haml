@@ -16,10 +16,11 @@
                 %span.sellform__upload__head-tag 必須
               %p 最大10枚までアップロードできます。
 
-            = form_for @item, html: {multipart: true} do |f| 
+          = form_for @item, html: {multipart: true} do |f| 
+            = f.fields_for :images do |m|
               .sellform__upload__drop
                 .sellform__upload__drop__box
-                  = f.file_field :image, multiple: true, name: "images[image_url][]", id: "myfile", class: " ", placeholder: "ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード"
+                  = m.file_field :image, multiple: true, name: "images[image_url][]", id: "myfile", class: " ", placeholder: "ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード"
                   .boxforpreview
                     #result.preview
               .sellform__upload.uniqueitem

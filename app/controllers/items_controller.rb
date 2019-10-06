@@ -34,10 +34,9 @@ class ItemsController < ApplicationController
   end
   
   def edit
+  @item = Item.find(params[:id])
 
   if user_signed_in?
-    @item = Item.find(params[:id])
-    Image.find(@item.images.ids)
     @category_parent_array = ["---"]
       Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
     else
@@ -48,10 +47,15 @@ class ItemsController < ApplicationController
   
 
   def update
+  @item = Item.find(params[:id])
+    if @item.seller_id == current_user.id
+    @item = Item.find(params[:id]).update(update_params)
+    redirect_to root_path
+    else
+    redirect_to new_item_path
+    end
 
-  @item = Item.find(params[:id]).update(update_params)
 
-  redirect_to root_path
   end
   
   def search
@@ -94,7 +98,7 @@ class ItemsController < ApplicationController
   end
 
   def update_params
-  params.require(:item).permit(:id,:name, :price, :description, :seller_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
+  params.require(:item).permit(:id,:name, :price, :description, :seller_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id).merge(seller_id: current_user.id)
   end
 
   def buyitem_params
