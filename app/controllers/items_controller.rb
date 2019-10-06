@@ -43,13 +43,11 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
 
-    @card = Card.where(user_id: current_user.id).first
+    @item = set_item
+    @card = current_user.card
 
-    if @card.blank?
-    
-      else
+    if @card.present?
       Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
@@ -57,10 +55,10 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    item = Item.find(params[:id])
-
+    item = set_item
+    
     if item.seller_id != current_user.id
-    card = Card.where(user_id: current_user.id).first
+    card = current_user.card
     Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
     Payjp::Charge.create(
     :amount => item.price,
@@ -90,4 +88,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
+
+  def set_item
+  Item.find(params[:id])
+  end
 end
