@@ -95,11 +95,13 @@ class ItemsController < ApplicationController
 
 
   def pay
-    if @item.seller_id != current_user.id
+    item = Item.find(:id)
+    
+    if item.seller_id != current_user.id
     card = current_user.card
     Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
     Payjp::Charge.create(
-    :amount => @item.price,
+    :amount => item.price,
     :customer => card.customer_id, 
     :currency => 'jpy',
   )
