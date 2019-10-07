@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :purchase]
+  before_action :set_item, only: [:show, :destroy, :purchase, :pay]
   def index
     @items = Item.all.order(created_at: :desc).limit(10)
   end
@@ -62,8 +62,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    set_item
-    
     if @item.seller_id != current_user.id
     card = current_user.card
     Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
