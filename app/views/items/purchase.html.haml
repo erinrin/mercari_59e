@@ -31,7 +31,7 @@
 
           .before-contents__item__buy
             - if @item.seller_id != current_user.id && @item.buyer_id == nil && @card.blank? == false
-              = form_tag(action: :pay, method: :post) do
+              = form_tag(pay_items_path, method: :post) do
                 %button.before-contents__item__buy 購入する
             - else
               .before-contents__item__cant 購入できません

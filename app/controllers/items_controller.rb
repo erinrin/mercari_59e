@@ -95,17 +95,17 @@ class ItemsController < ApplicationController
 
 
   def pay
-    item = Item.find(:id)
+    set_item
     
-    if item.seller_id != current_user.id
+    if @item.seller_id != current_user.id
     card = current_user.card
     Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
     Payjp::Charge.create(
-    :amount => item.price,
+    :amount => @item.price,
     :customer => card.customer_id, 
     :currency => 'jpy',
   )
-    item.update(buyer_id:current_user.id)
+    @item.update(buyer_id:current_user.id)
       redirect_to root_path
 
       else
