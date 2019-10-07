@@ -52,26 +52,34 @@ class ItemsController < ApplicationController
 
   def purchase
     if user_signed_in?
-      @item = Item.find(params[:id])
+      @item = set_item
+      @card = current_user.card
+      if @card.present?
+        Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+      end
     else
       redirect_to new_user_session_path
     end
   end
 
   def pay
-    item = Item.where(buyitem_params).first
-
-    if item != current_user.id
-
-    Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
-    charge = Payjp::Charge.create(
+    item = set_item
+    
+    if item.seller_id != current_user.id
+    card = current_user.card
+    Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
+    Payjp::Charge.create(
     :amount => item.price,
-    :card => params['payjp-token'],
+    :customer => card.customer_id, 
     :currency => 'jpy',
-    )
+  )
     item.update(buyer_id:current_user.id)
+      redirect_to root_path
 
       else
+
       redirect_to root_path
     end
 
@@ -90,8 +98,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
-  def buyitem_params
-    params.permit(:id)
-  end
 
+  def set_item
+  Item.find(params[:id])
+  end
 end

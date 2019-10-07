@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  
   def show
     @user = User.find(params[:id])
   end 
@@ -24,6 +25,16 @@ class UsersController < ApplicationController
   end
 
   def sign_up_select
+  end
+
+  def credit
+    @card = current_user.card
+
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
 end
