@@ -1,0 +1,14 @@
+.item__edit__delete{
+  width: 60px;
+  height: 60px;
+
+}
+
+.sellform__upload__drop__box__delete{
+  display: flex;
+  &__text{
+    position: absolute;
+    font-size: 14px;
+    z-index:999;
+  }
+}

@@ -52,10 +52,10 @@ class ItemsController < ApplicationController
     
     if @item.seller_id == current_user.id
       
-      params[:images][:image_url].each do |image|
-      @item.images.create!(image: image, item_id: @item.id)
+        params[:images][:image_url].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+        end
       @item = @item.update(update_params)
-      end
     
     redirect_to root_path
     else
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
   end
 
   def image_delete
-  
+
   url  = Image.find(params[:id]).item_id
   Image.find(params[:id]).delete
   redirect_to "/items/#{url}/edit"

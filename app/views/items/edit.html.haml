@@ -15,18 +15,19 @@
                 出品画像
                 %span.sellform__upload__head-tag 必須
               %p 最大10枚までアップロードできます。
-              - @images.each do |image|
-                = link_to "/items/image_delete/#{image.id}",method: :delete do
-                  = image_tag("#{image.image.url}", class: "item-main__photo__dot",data: image.id)
 
-              -# - @item.images.each do |image|
-              -#   = link_to image_delete_item_path,method: :delete do
-              -#     = image_tag("#{image.image.url}", class: "item-main__photo__dot",data: image.id)
-                
           = form_for @item, html: {multipart: true} do |f| 
             = f.fields_for :imagess do |m|
               .sellform__upload__drop
                 .sellform__upload__drop__box
+                  .sellform__upload__drop__box__delete
+                    .item__edit__delete
+                    - @images.each do |image|
+                      = link_to "/items/image_delete/#{image.id}",method: :delete do
+                        = image_tag("#{image.image.url}", class: "item__edit__delete",data: image.id)
+                        .sellform__upload__drop__box__delete__text
+                          削除する
+                        
                   = m.file_field :image, multiple: true, name: "images[image_url][]", id: "myfile", class: " ", placeholder: "ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード"
                   .boxforpreview
                     #result.preview
@@ -142,7 +143,7 @@
                     また、出品をもちまして
                     = link_to "加盟店規約", root_path, class: 'selldesc-link'
                     に同意したことになります。
-                = f.submit "出品する", class:"field-button"
+                = f.submit "編集する", class:"field-button"
                 = link_to root_path do
                   .sellback もどる
     .login-footer
