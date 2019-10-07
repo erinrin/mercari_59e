@@ -33,6 +33,14 @@ class ItemsController < ApplicationController
     @items = Item.includes(:user)
   end
   
+  def destroy
+    item = Item.find(params[:id])
+    if @item.seller_id == current_user.id
+    end
+    item.destroy 
+    redirect_to user_path(current_user.id)
+  end
+
   def edit
   end
   
@@ -43,7 +51,11 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
+    if user_signed_in?
+      @item = Item.find(params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def pay
