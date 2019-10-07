@@ -34,9 +34,10 @@ class ItemsController < ApplicationController
   end
   
   def edit
-
+  
+  @item = Item.find(params[:id])
     if user_signed_in? && @item.seller_id == current_user.id
-    @item = Item.find(params[:id])
+    
     @images = Image.where(item_id: "#{@item.id}")
     @category_parent_array = ["---"]
       Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
