@@ -35,14 +35,14 @@ class ItemsController < ApplicationController
   
   def edit
 
-    if user_signed_in?
+    if user_signed_in? || @item.seller_id == current_user.id
     @item = Item.find(params[:id])
     @images = Image.where(item_id: "#{@item.id}")
     @category_parent_array = ["---"]
       Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
 
     else
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
 
   end
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     
-    if @item.seller_id == current_user.id
+    if user_signed_in? || @item.seller_id == current_user.id
       
         params[:images][:image_url].each do |image|
         @item.images.create!(image: image, item_id: @item.id)
