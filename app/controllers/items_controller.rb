@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :destroy]
   def index
     @items = Item.all.order(created_at: :desc).limit(10)
   end
@@ -36,9 +36,9 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     if @item.seller_id == current_user.id
+      item.destroy 
+      redirect_to user_path(current_user.id)
     end
-    item.destroy 
-    redirect_to user_path(current_user.id)
   end
 
   def edit
@@ -100,6 +100,6 @@ class ItemsController < ApplicationController
 
 
   def set_item
-  Item.find(params[:id])
+    Item.find(params[:id])
   end
 end
