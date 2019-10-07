@@ -34,9 +34,40 @@ class ItemsController < ApplicationController
   end
   
   def edit
+
+    if user_signed_in?
+    @item = Item.find(params[:id])
+    @images = Image.where(item_id: "#{@item.id}")
+    @category_parent_array = ["---"]
+      Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
+
+    else
+      redirect_to new_user_session_path
+    end
+
   end
   
   def update
+    @item = Item.find(params[:id])
+    
+    if @item.seller_id == current_user.id
+      
+      params[:images][:image_url].each do |image|
+      @item.images.create!(image: image, item_id: @item.id)
+      @item = @item.update(update_params)
+      end
+    
+    redirect_to root_path
+    else
+    redirect_to new_item_path
+    end
+  end
+
+  def image_delete
+  
+  url  = Image.find(params[:id]).item_id
+  Image.find(params[:id]).delete
+  redirect_to "/items/#{url}/edit"
   end
   
   def search
@@ -53,6 +84,7 @@ class ItemsController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
+
 
   def pay
     item = set_item
@@ -88,6 +120,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
+  def update_params
+    params.require(:item).permit(:id,:name, :price, :description, :seller_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id).merge(seller_id: current_user.id)
+  end
 
   def set_item
   Item.find(params[:id])

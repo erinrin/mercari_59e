@@ -1,0 +1,159 @@
+
+%body.sellbody
+  .sellcontainer
+    %header.sellcontainer__header
+      %h1.sellcontainer__header-title
+        = link_to root_path, class: 'sellcontainer__header-title-link' do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?347780358", class: "sellcontainer__header-title-link-img"
+    .sellcontainer__main
+      %section.sellcontainer__main__centerd
+        .div
+          %h2.sellcontainer__main__centerd__head 商品の情報を入力
+          .sellform
+            .sellform__upload
+              %h3.sellform__upload__head
+                出品画像
+                %span.sellform__upload__head-tag 必須
+              %p 最大10枚までアップロードできます。
+              - @images.each do |image|
+                = link_to "/items/image_delete/#{image.id}",method: :delete do
+                  = image_tag("#{image.image.url}", class: "item-main__photo__dot",data: image.id)
+
+              -# - @item.images.each do |image|
+              -#   = link_to image_delete_item_path,method: :delete do
+              -#     = image_tag("#{image.image.url}", class: "item-main__photo__dot",data: image.id)
+                
+          = form_for @item, html: {multipart: true} do |f| 
+            = f.fields_for :imagess do |m|
+              .sellform__upload__drop
+                .sellform__upload__drop__box
+                  = m.file_field :image, multiple: true, name: "images[image_url][]", id: "myfile", class: " ", placeholder: "ドラッグアンドドロップ<br/>またはクリックしてファイルをアップロード"
+                  .boxforpreview
+                    #result.preview
+              .sellform__upload.uniqueitem
+                .sellform__upload__group.nextbox
+                  %label.sellform__upload__group-label
+                    商品名
+                    %span.sellform__upload__group-label-req 必須
+                  .div
+                    = f.text_field :name, autofocus: true, class:"field-first-input", placeholder:"商品名(必須40文字まで)"
+                .sellform__upload__groups
+                  %label.sellform__upload__group-label
+                    商品の説明
+                    %span.sellform__upload__group-label-req 必須
+                  .div
+                    = f.text_area :description, autofocus: true, class:"field-first-area", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    商品の詳細
+                  .sellform__upload__group__box-select
+                    %label.sellform__upload__group-label
+                      カテゴリー
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select field-first-input', id: 'parent_category'}
+                  .sellform__upload__group__lastbox
+                    %label.sellform__upload__group-label
+                      商品の状態
+                      %span.sellform__upload__group-label-req 必須
+                    .category
+                      .categoryselects
+                        = f.select :quality, Item.qualities.keys, {}, {class: 'field-first-input'}
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    配送について
+                    .question?
+                  .sellform__upload__group__box
+                    %label.sellform__upload__group-label
+                      配送料の負担
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :fee, Item.fees.keys, {}, {class: 'field-first-input'}
+                  .sellform__upload__group__middlebox
+                    %label.sellform__upload__group-label
+                      配送の方法
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        %i.selects-icon
+                        = f.select :sendmethod, Item.sendmethods.keys, {}, {class: 'field-first-input'}
+                  .sellform__upload__group__middlebox
+                    %label.sellform__upload__group-label
+                      発送元の地域
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        = f.select :region, Item.regions.keys, {}, {class: 'field-first-input'}
+                  .sellform__upload__group__lastbox
+                    %label.sellform__upload__group-label
+                      発送までの日数
+                      %span.sellform__upload__group-label-req 必須
+                    .div
+                      .selects
+                        = f.select :senddate, Item.senddates.keys, {}, {class: 'field-first-input'}
+              .sellform__upload.fix
+                .sellform__upload__group
+                  %label.sellform__upload__group-modest
+                    販売価格(300〜9,999,999)
+                    .question ?
+                  .sellform__upload__group__box
+                    %ul.sellprice
+                      %li.sellprice__top
+                        .fix
+                          %label.sellprice__left
+                            価格
+                            %span.sellform__upload__group-label-req 必須
+                          .sellprice__right
+                            %p.sellprice__right-yen¥
+                            .div
+                              .pricebox
+                                %i.selects-icon
+                                = f.text_field :price, autofocus: true, class:"field-first-input rightpr", placeholder:"例)300"
+                      %li.sellprice__box.fix
+                        .marginname 
+                          販売手数料 (10%)
+                        .marginprice 
+                          %p -
+                      .sellprice__box__left
+                      %li.sellprice__box.fix
+                        .pricebold 
+                          販売利益
+                        .totalprice 
+                          %p -
+                .sellblank.fix
+              .sellform__upload.fix
+                .div
+                  %p.selldesc 
+                    = link_to "禁止されている出品", root_path, class: 'selldesc-link'
+                    、
+                    = link_to "行為", root_path, class: 'selldesc-link'
+                    を必ずご確認ください。
+                  %p.selldesc 
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    = link_to "偽ブランドの販売", root_path, class: 'selldesc-link'
+                    は犯罪であり処罰される可能性があります。
+                  %p.selldesc 
+                    また、出品をもちまして
+                    = link_to "加盟店規約", root_path, class: 'selldesc-link'
+                    に同意したことになります。
+                = f.submit "出品する", class:"field-button"
+                = link_to root_path do
+                  .sellback もどる
+    .login-footer
+      %nav
+        %ul.footer-clearfix
+          %li
+            = link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
+          %li.footer-margin-left
+            = link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
+          %li.footer-margin-left
+            = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
+      = link_to root_path do
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3296506464", class: "login-footer__logo"
+      %p ©2019 Mercari

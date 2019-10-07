@@ -31,10 +31,14 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       post 'pay/:id' => 'items#pay', as: 'pay'
+      delete 'image_delete/:id' => 'items#image_delete'
     end
     
     member do
+      
       get 'purchase'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
