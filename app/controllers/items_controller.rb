@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   
   def edit
 
-    if user_signed_in? || @item.seller_id == current_user.id
+    if user_signed_in? & @item.seller_id == current_user.id
     @item = Item.find(params[:id])
     @images = Image.where(item_id: "#{@item.id}")
     @category_parent_array = ["---"]
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     
-    if user_signed_in? || @item.seller_id == current_user.id
+    if user_signed_in? & @item.seller_id == current_user.id
       
         params[:images][:image_url].each do |image|
         @item.images.create!(image: image, item_id: @item.id)
