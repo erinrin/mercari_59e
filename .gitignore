@@ -28,3 +28,4 @@
 .DS_Store
 /config/secrets.yml
 /public/uploads
+/config/initializers/recaptcha.rb
