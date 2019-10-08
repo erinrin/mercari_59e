@@ -58,10 +58,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     
     if user_signed_in? && @item.seller_id == current_user.id
-      
+    
+      if params[:images].present?
         params[:images][:image_url].each do |image|
         @item.images.create!(image: image, item_id: @item.id)
         end
+      end
       @item = @item.update(update_params)
     
     redirect_to root_path
