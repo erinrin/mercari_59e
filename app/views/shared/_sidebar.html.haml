@@ -6,51 +6,51 @@
           マイページ
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/notification/' do
+        = link_to user_path(current_user.id) do
           お知らせ
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/todo/' do
+        = link_to user_path(current_user.id) do
           やることリスト
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/like/history/' do
+        = link_to user_path(current_user.id) do
           いいね！一覧
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/sell/' do
+        = link_to new_item_path(current_user.id) do
           出品する
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/listings/listing/' do
+        = link_to user_path(current_user.id) do
           出品した商品-出品中
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/listings/completed/' do
+        = link_to user_path(current_user.id) do
           出品した商品-売却済み
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/purchase/' do
+        = link_to user_path(current_user.id) do
           購入した商品-取引中
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/purchased/' do
+        = link_to user_path(current_user.id) do
           購入した商品-過去の取引
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/news/' do
+        = link_to user_path(current_user.id) do
           ニュース一覧
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/review/history/' do
+        = link_to user_path(current_user.id) do
           評価一覧
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/help_center/' do
+        = link_to user_path(current_user.id) do
           ガイド
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to '/jp/mypage/support/' do
+        = link_to user_path(current_user.id) do
           お問い合わせ
           %i.fa.fa-chevron-right
 
@@ -59,11 +59,11 @@
       %pメルペイ
       %ul.user__mypage__sidebars
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/sales/' do
+          = link_to user_path(current_user.id) do
             売上
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/point/' do
+          = link_to user_path(current_user.id) do
             ポイント
             %i.fa.fa-chevron-right
     .user__mypage__sidebars__bottom
@@ -74,7 +74,7 @@
             プロフィール
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/deliver_address/' do
+          = link_to user_path(current_user.id) do
             発送元・お届け先住所変更
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
@@ -82,7 +82,7 @@
             支払い変更
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/email_password/' do
+          = link_to user_path(current_user.id) do
             メール/パスワード
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
@@ -90,10 +90,10 @@
             本人情報
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/mypage/sms_confirmation/' do
+          = link_to user_path(current_user.id) do
             電話番号の確認
             %i.fa.fa-chevron-right
         %li.user__mypage__sidebars__item
-          = link_to '/jp/logout/' do
+          = link_to logout_user_path(current_user.id) do
             ログアウト
             %i.fa.fa-chevron-right
