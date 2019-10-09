@@ -29,24 +29,24 @@
         = form_for @address do |f|
           .identi-form__input
             = f.label :郵便番号, class: "identi-label"
-            %span 任意 <br>
+            %span 任意
             = f.text_field :post_number, class: 'identi-input', placeholder: "例)542-0076", autofocus: true, autocomplete: "post_number"
           .identi-form__input
             = f.label :都道府県, class: "identi-label"
-            %span 任意 <br>
-            = f.text_field :prefecture, class: 'identi-input', placeholder: "例)大阪府", autofocus: true, autocomplete: "prefecture"
-            = fa_icon 'angle-down', class: "identi_icon"
+            %span 任意
+            = f.select :prefecture, Item.regions.keys, {}, {class: 'field-first-input'}
+            -# = fa_icon 'angle-down', class: "identi_icon"
           .identi-form__input
             = f.label :市区町村, class: "identi-label"
-            %span 任意 <br>
+            %span 任意
             = f.text_field :city, class: 'identi-input', placeholder: "例)大阪市中央区難波", autofocus: true, autocomplete: "post_city"
           .identi-form__input
             = f.label :番地, class: "identi-label"
-            %span 任意 <br>
+            %span 任意
             = f.text_field :house_number, class: 'identi-input', placeholder: "例)5丁目1-60", autofocus: true, autocomplete: "house_number"
           .identi-form__input
             = f.label :建物名, class: "identi-label"
-            %span 任意 <br>
+            %span 任意
             = f.text_field :building, class: 'identi-input', placeholder: "例)なんばスカイオ", autofocus: true, autocomplete: "building"
           .identi-form__input
             = f.submit '登録する', class: 'identi-save'

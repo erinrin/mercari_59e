@@ -34,7 +34,6 @@ Rails.application.routes.draw do
       get 'search'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'addnewcard'
       post 'pay/:id' => 'items#pay', as: 'pay'
       delete 'image_delete/:id' => 'items#image_delete'
     end
@@ -44,6 +43,7 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'addnewcard'
     end
   end
 

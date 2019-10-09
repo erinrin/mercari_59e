@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 2019_09_26_073732) do
     t.string "name_last"
     t.string "name_kana_first"
     t.string "name_kana_last"
-    t.integer "post_number", null: false
+    t.string "post_number", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
-    t.text "house_number", null: false
+    t.string "house_number", null: false
     t.string "building"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"

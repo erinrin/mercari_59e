@@ -14,7 +14,11 @@ class CardController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to controller:"users", action: "credit"
+        if request.referrer.match("addnewcard")
+          redirect_to root_path
+        else
+          redirect_to controller:"users", action: "credit"
+        end
       else
         redirect_to action: "pay"
       end
