@@ -14,6 +14,11 @@ class UsersController < ApplicationController
 
   def identification
     @user = User.find(params[:id])
+    if @user.address == nil
+      @address = @user.build_address
+    else
+      @address = @user.address
+    end
   end
 
   def update

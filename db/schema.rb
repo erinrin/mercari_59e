@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_073732) do
     t.integer "sendmethod", null: false
     t.integer "senddate", null: false
     t.integer "region", null: false
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
