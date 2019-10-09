@@ -1,11 +1,26 @@
-.card
-  = link_to item_path(item.id), class: "cardbox" do
-    - if item.images.present?
-      %figure.cardbox
-        %figcaption.cardboxdetail
-          %span.cardtext
-          = item.name
-        .thumbnail
-          %span.Price
-            ="¥#{item.price}"
-          = image_tag "#{item.images[0].image.url}", class: "cardimage"
+- if item.buyer_id == nil
+  .card
+    = link_to item_path(item.id), class: "cardbox" do
+      - if item.images.present?
+        %figure.cardbox
+          %figcaption.cardboxdetail
+            %span.cardtext
+            = item.name
+          .thumbnail
+            %span.Price
+              ="¥#{item.price}"
+            = image_tag "#{item.images[0].image.url}", class: "cardimage"
+- else
+  .card
+    = link_to item_path(item.id), class: "cardbox" do
+      - if item.images.present?
+        %figure.cardbox
+          %figcaption.cardboxdetail
+            %span.cardtext
+            = item.name
+          .thumbnail
+            %span.Price
+              ="¥#{item.price}"
+            = image_tag "#{item.images[0].image.url}", class: "cardimage"
+            .cardimage__sold
+              SOLD

@@ -16,7 +16,12 @@
       されます。
     .item-main-content
       .item-main__photo
-        = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
+        - if @item.buyer_id == nil
+          = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
+        -else
+          = image_tag "#{@item.images[0].image.url}", class: "item-main__photo__display"
+          .item-main__photo__display__sold
+            SOLD
         .item-main__photo__dots
           - @item.images.each do |image|
             = image_tag("#{image.image.url}", class: "item-main__photo__dot")

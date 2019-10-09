@@ -41,11 +41,37 @@
   width: 300px;
   height: 375px;
   background: #fafafa;
+  position: relative;
   &__display {
     width: 300px;
     height: 300px;
     background-position:center bottom; 
     background-size: cover;
+    &__sold {
+      top: 24px;
+      font-size: 28px;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      color: #fff;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      font-weight: 600;
+      &:after {
+        transform: rotate(45deg);
+        border-width: 120px 120px 0 0;
+        border-color: #ea352d transparent transparent transparent;
+        display: block;
+        content: '';
+        position: absolute;
+        top: -18px;
+        left: -19px;
+        z-index: -1;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+    }
   }
   &__dots {
     width: 300px;
@@ -95,6 +121,39 @@
     }
   }
 } 
+// 売り切れ sold
+.items-box__sold-out {
+  width: 220px;
+  height: 330px;
+  margin: 0 10px 20px 10px;
+  position: relative;
+  float: left;
+  background: white;
+  &__display {
+    top: 20px;
+    font-size: 26px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  &:after {
+    border-width: 100px 100px 0 0;
+    border-color: #ea352d transparent transparent transparent;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+}
 // カテゴリーのアイコン
 .item-icon {
   color: #0099e8;

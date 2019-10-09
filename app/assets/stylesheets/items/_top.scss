@@ -255,6 +255,31 @@ body {
   vertical-align: top;
   width: 100%;
   z-index: 1;
+  &__sold {
+    top: 14px;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    &:after {
+      transform: rotate(45deg);
+      border-width: 80px 80px 0 0;
+      border-color: #ea352d transparent transparent transparent;
+      display: block;
+      content: '';
+      position: absolute;
+      top: -13px;
+      left: -14px;
+      z-index: -1;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
 }
 
 .createbutton {
