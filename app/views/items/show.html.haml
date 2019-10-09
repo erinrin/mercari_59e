@@ -67,11 +67,13 @@
         = "¥#{@item.price}"
       %span.item-tax  (税込)
       %span.item-shipping-fee 送料込み
-      - if user_signed_in? &&@item.seller_id == current_user.id
+      - if user_signed_in? && @item.seller_id == current_user.id
         = link_to "この商品を削除する",item_path, method: :delete, class: "item-delete"
         = link_to "この商品を編集する",edit_item_path, class: "item-delete"
-      - else 
+      - elsif @item.buyer_id == nil && @item.seller_id != current_user.id
         = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
+      - else
+        %p.item-bought-btn 売り切れました
     .item-description
       %p.item-description__inner
       = @item.description
