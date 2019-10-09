@@ -44,7 +44,7 @@
           .field-groups
             = f.label :prefecture, value: "都道府県", class:"field-first-label"
             %span.field-first-tag 必須
-            = f.text_field :prefecture, class:"field-first-input", placeholder:"例)大阪府"
+            = f.select :prefecture, Item.regions.keys, {}, {class: 'field-first-input'}
           .field-groups
             = f.label :city, value: "市区町村", class:"field-first-label"
             %span.field-first-tag 必須
@@ -63,7 +63,6 @@
             = f.text_field :phone_number, class:"field-first-input"
           .field-groups
           = f.submit "次へ進む", class:"field-button"
-          = link_to "仮置き", addnewcard_items_path
   .login-footer
     %nav
       %ul.footer-clearfix
