@@ -32,6 +32,12 @@ class UsersController < ApplicationController
   def sign_up_select
   end
 
+  def addphone
+  end
+
+  def nextphone
+  end
+  
   def credit
     @card = current_user.card
 

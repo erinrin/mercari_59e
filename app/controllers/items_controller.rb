@@ -117,6 +117,9 @@ class ItemsController < ApplicationController
 
   end
 
+  def addnewcard
+  end
+
   def get_category_children
     @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children
   end
