@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   root to: 'items#index'
   devise_for :users, :controllers => {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -16,6 +18,14 @@ Rails.application.routes.draw do
       get 'logout'
       get 'addphone'
       get 'nextphone'
+
+        resources :card, only: [:new, :show] do
+        collection do
+          post 'show', to: 'card#show'
+          post 'pay', to: 'card#pay'
+          post 'delete', to: 'card#delete'
+        end
+      end
     end
     
   end
@@ -26,10 +36,14 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'addnewcard'
       post 'pay/:id' => 'items#pay', as: 'pay'
+      delete 'image_delete/:id' => 'items#image_delete'
     end
-
+    
     member do
+      
       get 'purchase'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
@@ -39,4 +53,5 @@ Rails.application.routes.draw do
       post 'addregion' => 'items#craddregion'
     end
   end
+
 end

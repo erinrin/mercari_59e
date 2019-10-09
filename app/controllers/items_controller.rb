@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :destroy, :purchase, :pay]
   def index
-
+    @items = Item.all.order(created_at: :desc).limit(10)
   end
 
   def new
@@ -28,38 +28,90 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id).nickname 
     @items = Item.includes(:user)
   end
   
+  def destroy
+    if @item.seller_id == current_user.id
+      @item.destroy 
+      redirect_to user_path(current_user.id)
+    end
+  end
+
   def edit
+  
+  @item = Item.find(params[:id])
+    if user_signed_in? && @item.seller_id == current_user.id
+    
+    @images = Image.where(item_id: "#{@item.id}")
+    @category_parent_array = ["---"]
+      Category.where(ancestry: nil).pluck(:name).map{|parent|@category_parent_array << parent}
+
+    else
+      redirect_to root_path
+    end
+
   end
   
   def update
+    @item = Item.find(params[:id])
+    
+    if user_signed_in? && @item.seller_id == current_user.id
+    
+      if params[:images].present?
+        params[:images][:image_url].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+        end
+      end
+      @item = @item.update(update_params)
+    
+    redirect_to root_path
+    else
+    redirect_to new_item_path
+    end
+  end
+
+  def image_delete
+
+  url  = Image.find(params[:id]).item_id
+  Image.find(params[:id]).delete
+  redirect_to "/items/#{url}/edit"
   end
   
   def search
   end
 
   def purchase
-    @item = Item.find(params[:id])
+    if user_signed_in?
+      @card = current_user.card
+      if @card.present?
+        Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
+
   def pay
-    item = Item.where(buyitem_params).first
-
-    if item != current_user.id
-
-    Payjp.api_key = 'sk_test_7b7f58cde33212631920ea84'
-    charge = Payjp::Charge.create(
-    :amount => item.price,
-    :card => params['payjp-token'],
+    set_item
+    
+    if @item.seller_id != current_user.id
+    card = current_user.card
+    Payjp.api_key =  Rails.application.credentials.PAYJP_PRIVATE_KEY
+    Payjp::Charge.create(
+    :amount => @item.price,
+    :customer => card.customer_id, 
     :currency => 'jpy',
-    )
-    item.update(buyer_id:current_user.id)
+  )
+    @item.update(buyer_id:current_user.id)
+      redirect_to root_path
 
       else
+
       redirect_to root_path
     end
 
@@ -81,8 +133,11 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :seller_id, :buyer_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id, images_attributes: [:image]).merge(seller_id: current_user.id)
   end
 
-  def buyitem_params
-    params.permit(:id)
+  def update_params
+    params.require(:item).permit(:id,:name, :price, :description, :seller_id, :quality, :fee, :sendmethod, :senddate, :region, :category_id).merge(seller_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

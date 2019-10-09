@@ -1,4 +1,6 @@
 = render "shared/header"
+- breadcrumb :credit
+= render "shared/breadcrumbs"
 .user__mypage
   = render 'shared/sidebar'
 
@@ -13,11 +15,26 @@
         .user__mypage__creditbox__card__list__message
           クレジットカード一覧
         .user__mypage__creditbox__card__add
-          = link_to "https://www.mercari.com/jp/mypage/card/create/" do
+
+        - if @card.blank?
+
+          = link_to new_card_path do
             %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
               %i.fa.fa-credit-card
               クレジットカードを追加する
-              -# creditコントローラーのcreateに飛ばす予定
+        - else
+          %label 登録クレジットカード情報
+          %br
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+          = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
+              削除する
+        
       
       .user__mypage__creditbox__card__change
         = link_to "https://www.mercari.com/jp/help_center/category/6/" do

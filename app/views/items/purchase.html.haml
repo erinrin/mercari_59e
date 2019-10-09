@@ -11,7 +11,7 @@
         .before-contents__item
           .before-contents__item__box
             .before-contents__item__box__image
-              =image_tag "http://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg"
+              = image_tag "#{@item.images[0].image.url}"
               
             .before-contents__item__box__title
               = @item.name
@@ -30,8 +30,11 @@
               = "¥#{@item.price}"
 
           .before-contents__item__buy
-          = form_tag(action: :pay, method: :post) do
-            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_b0fdf8eea634ce434a90095a"}
+            - if @item.seller_id != current_user.id && @item.buyer_id == nil && @card.blank? == false
+              = form_tag(pay_items_path, method: :post) do
+                %button.before-contents__item__buy 購入する
+            - else
+              .before-contents__item__cant 購入できません
 
 
         .before-contents-delivery
@@ -54,14 +57,20 @@
             .before-contents-pay__box__method
               お支払い方法
             .before-contents-pay__box__information
-              カード情報？
-              %br/
-              登録していないからわからない
-              %br/
-              7/23
+              - if @card.blank?
+                クレジットカードがありません追加してください
+
+              - else
+                %label 登録クレジットカード情報
+                %br
+                = "**** **** **** " + @default_card_information.last4
+                %br
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
 
             .before-contents-delivery__box__change
-              = link_to "変更する", root_path
+              = link_to "変更する", credit_user_path
               %i.fa.fa-arrow-right
 
     .under-footer

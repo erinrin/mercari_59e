@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  
   def show
     @user = User.find(params[:id])
   end 
@@ -13,6 +14,11 @@ class UsersController < ApplicationController
 
   def identification
     @user = User.find(params[:id])
+    if @user.address == nil
+      @address = @user.build_address
+    else
+      @address = @user.address
+    end
   end
 
   def update
@@ -32,4 +38,14 @@ class UsersController < ApplicationController
   def nextphone
   end
   
+  def credit
+    @card = current_user.card
+
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
 end

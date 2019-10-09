@@ -12,6 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :sendmethod, null: false
       t.integer :senddate, null: false
       t.integer :region, null: false
+      t.integer :status,default: 1
       t.timestamps
     end
   end

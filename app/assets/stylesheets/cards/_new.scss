@@ -1,0 +1,107 @@
+.card__number__field{
+  border:2px solid lightgrey;
+  width:100%;
+  height:48px;
+  padding:10px 16px 8px;
+  margin-top:10px;
+  border-radius:5px;
+  font-size:16px;
+  box-sizing:border-box;
+}
+
+.user__mypage__creditbox__card__form{
+  width: 700px;
+  height: 487px;
+  padding: 40px;
+  &__card{
+    width:343px +  139px + 138px;
+    height:407px;
+    padding:0px 138px;
+  }
+}
+
+.card-number-text{
+  font-weight: bold;
+
+}
+.card-number-hi{
+  font-weight: normal;
+  font-size:12px;
+  background-color: red;
+  padding:2px;
+  color: white;
+  margin:5px;
+  border-radius:2px;
+}
+
+.user__mypage__creditbox-card{
+  width: 700px;
+  height: 500px;
+  background-color: white;
+}
+
+.card-brand-image-box{
+  display: flex;
+}
+.card-brand-image{
+  margin:2px;
+  vertical-align:middle;
+}
+.select__number-card{
+  margin-top:5px;
+}
+.add_card_button{
+  position: relative;
+  top: 40px;
+  display       : inline-block;
+  font-size     : 14px;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 22px 25px;
+  background    : rgb(255, 47, 47);
+  color         : white;
+  line-height   : 0.4em;
+  transition    : .3s;
+  width: 100%;
+}
+
+
+.select--hi--card{
+    width: 35%;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+.select-card----text{
+  margin:0 10px;
+}
+.csv-text-field--box{
+  margin-top:20px;
+}
+
+.csv-text-field-text{
+  display: flex;
+  float: right;
+  
+}
+
+.csv-text-field-text-gi{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+  margin-top:3px;
+}
+
+.csv-text-field-text-ba{
+  color: #0099e8;
+}
