@@ -15,9 +15,20 @@ end
 
 #  本人情報の登録
 crumb :identification do
-  link " 本人情報の登録", identification_user_path
+  link "本人情報の登録", identification_user_path
   parent :mypage
 end
+
+crumb :credit do
+  link "支払い変更", credit_user_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", logout_user_path
+  parent :mypage
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
