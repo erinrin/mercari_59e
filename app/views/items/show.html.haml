@@ -6,7 +6,7 @@
       = @item.name
     %p.item-wording
       = "#{@item.name}は" 
-      = link_to @seller, root_path
+      = link_to @seller.nickname, root_path
       さんから出品されました。"
       = link_to "#{@item.category.parent.parent.name}/#{@item.category.name}", root_path
       の商品で、
@@ -30,7 +30,7 @@
           %tr.item-main__tr
             %th.item-main__th 出品者
             %td.item-main__td
-              = link_to @seller, root_path
+              = link_to @seller.nickname, root_path
           %tr.item-main__tr
             %th.item-main__th カテゴリー
             %td.item-main__td
@@ -105,7 +105,7 @@
         =link_to "https://www.facebook.com/", class: "social-media-box__pinterest" do
           = fa_icon 'pinterest', class: "social-media-box__pinterest__icon"
   .items-in-user-profile
-    = link_to "#{@seller}さんのその他の出品", item_path, class: "items-box-head"
+    = link_to "#{@seller.nickname}さんのその他の出品", item_path, class: "items-box-head"
     .items-box-content
       = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
   .items-in-user-profile

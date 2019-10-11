@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @seller = User.find(@item.seller_id).nickname 
-    @items = Item.includes(:user)
+    @seller = User.find(@item.seller_id)
+    @items = @seller.items.order(created_at: :desc).limit(6)
   end
   
   def destroy
