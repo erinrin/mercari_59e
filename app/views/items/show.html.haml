@@ -80,8 +80,10 @@
           = link_to "購入画面に進む", purchase_item_path, class: "item-buy-btn"
         - else
           %p.item-bought-btn 売り切れました
-      - else
+      - elsif @item.buyer_id == nil
         = link_to "購入画面に進む", new_user_session_path, class: "item-buy-btn"
+      - else
+        %p.item-bought-btn 売り切れました
     .item-description
       %p.item-description__inner
       = @item.description
