@@ -112,4 +112,19 @@
     = link_to "アカチャンホンポ/#{@item.category.name} その他の商品", item_path, class: "items-box-head"
     .items-box-content
       = render partial: "items/item_card", locals: { item: @item }, class: "timeline-container__post-contents"
+%aside.bottom
+  .aaa
+  .bottom__contents
+    .bottom__contents__centerd
+      .bottom__contents__centerd__left
+        .bottom__contents__centerd__left-title スマホでかんたんフリマアプリ
+        .bottom__contents__centerd__left-sub 今すぐ無料ダウンロード！
+        .div
+          = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png', class:'bottom__contents__centerd__left-img'
+          = link_to root_path do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class:'bottom__contents__centerd__left-app'
+          = link_to root_path do
+            = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg', class:'bottom__contents__centerd__left-ggl'
+      %figure.bottom__contents__centerd__right
+        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png', class:'bottom__contents__centerd__right-smartphone'
 = render "shared/footer"
