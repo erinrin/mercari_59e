@@ -78,4 +78,5 @@
             -#     != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'dateselector-select', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1930, date_separator:'%s'),'年','月')+'日'
           %p.field-notice※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .field-groups
+          = recaptcha_tags
           = f.submit "次へ進む", class:"field-button"
