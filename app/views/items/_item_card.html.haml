@@ -10,7 +10,7 @@
           .items-box-body__num__price
             = "¥#{item.price}"
   - else
-    = link_to item_path(item.id), class: "items-box__sold-out" do
+    = link_to item_path(item.id),data: {turbolinks: false}, class: "items-box__sold-out" do
       - if item.images.present?
         = image_tag "#{item.images[0].image.url}", class: "items-box__photo"
         .items-box__sold-out__display
