@@ -92,7 +92,7 @@
             - if item.category.root.id == 1
               = render partial: "items/card",locals:{ item: item }
   .createbutton
-    = link_to new_item_path do
+    = link_to new_item_path,data: {turbolinks: false} do
       .createbutton__link
         .createbutton__link__bg
           .createbutton__link__bg-text 出品

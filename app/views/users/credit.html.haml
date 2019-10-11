@@ -18,7 +18,7 @@
 
         - if @card.blank?
 
-          = link_to new_card_path do
+          = link_to new_card_path,data: {turbolinks: false} do
             %button{type: "submit" ,class: "user__mypage__creditbox__card__add__red"}
               %i.fa.fa-credit-card
               クレジットカードを追加する

@@ -18,7 +18,7 @@
           いいね！一覧
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
-        = link_to new_item_path(current_user.id) do
+        = link_to new_item_path(current_user.id),data: {turbolinks: false} do
           出品する
           %i.fa.fa-chevron-right
       %li.user__mypage__sidebars__item
