@@ -43,11 +43,17 @@
               配送先
               
             %address.before-contents-delivery__box__address
-              〒100-8111 
+              〒
+              = current_user.address.post_number
               %br/
-              東京都千代田区千代田１−１
+              東京都
+              = current_user.address.city
+              = current_user.address.house_number
+              ー
+              = current_user.address.building
               %br/
-              松田  隆一
+              = current_user.name_first
+              = current_user.name_last
             .before-contents-delivery__box__change
               = link_to "変更する", root_path
               %i.fa.fa-arrow-right
